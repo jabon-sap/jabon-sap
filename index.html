@@ -1564,27 +1564,126 @@
 </div>
 
 <!-- ABOUT -->
-<section class="about" id="nosotros">
-
-  <div class="about-image">
-    <img 
-      src="Nuestra_historia.png" 
-      alt="Historia de Jabón SAP"
-    >
+section class="about section" id="nosotros">
+  <div class="about-visual reveal">
+    <div class="about-img-bg">
+      <div class="about-soap-stack">
+        <div class="soap-slice soap-1"></div>
+        <div class="soap-slice soap-2"></div>
+        <div class="soap-slice soap-3"></div>
+      </div>
+    </div>
+    <div class="about-tag">
+      <span class="about-tag-num">100</span>
+      <span class="about-tag-txt">% Natural</span>
+    </div>
   </div>
-
-  <div class="about-text">
-    <span class="section-label">Nuestra historia</span>
-
-    <h2>
-      De una idea a una solución sustentable
-    </h2>
-
-    <p>
-      Aquí permanece el texto actual de Nuestra Historia.
+  <div class="about-text reveal">
+    <p class="section-eyebrow">Nuestra historia</p>
+    <h2 class="section-title">El secreto está en la <em>Saponaria</em></h2>
+    <p class="section-body">
+      Jabón SAP está formulado a base de <strong>Sapindus saponaria</strong>, conocida como "árbol del jabón". Sus frutos contienen saponinas naturales, surfactantes vegetales que limpian profundamente sin irritar la piel ni contaminar el agua.
     </p>
+    <p class="section-body">
+      Sin parabenos, sin sulfatos, sin colorantes artificiales. Solo el poder limpiador que la naturaleza ya nos da, en tres presentaciones para adaptarse a tu estilo de vida.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <div class="pillar-text">
+          <strong>Saponaria pura</strong>
+          <span>Ingrediente único y 100% natural</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💧</div>
+        <div class="pillar-text">
+          <strong>3 presentaciones</strong>
+          <span>Líquido, polvo y en barra</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌍</div>
+        <div class="pillar-text">
+          <strong>Eco-friendly</strong>
+          <span>Biodegradable, cuida ríos y suelos</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💚</div>
+        <div class="pillar-text">
+          <strong>Sin crueldad</strong>
+          <span>Nunca probado en animales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="productos">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Nuestra colección</p>
+    <h2 class="section-title">Encuentra tu <em>jabón ideal</em></h2>
   </div>
 
+  <div class="products-grid">
+
+    <div class="product-card reveal">
+      <div class="product-img soap-lavanda-bg">
+        <div class="product-soap-visual" style="background:linear-gradient(135deg,#c8dba0,#7aaa4a); border-radius:50px; width:80px; height:120px; display:flex; align-items:center; justify-content:center; font-size:2.5rem;">🧴</div>
+        <span class="product-badge-new">Más vendido</span>
+      </div>
+      <div class="product-info">
+        <div class="stars">★★★★★</div>
+        <h3 class="product-name">SAP Líquido</h3>
+        <p class="product-desc">Jabón líquido de saponaria pura. Ideal para manos, cuerpo y uso diario. Suave, espumoso y biodegradable.</p>
+        <div class="product-footer">
+          <span class="product-price">$65 <small>MXN</small></span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-img soap-menta-bg">
+        <div class="product-soap-visual" style="background:linear-gradient(135deg,#e8dfc8,#c4a882); border-radius:8px; width:110px; height:90px; display:flex; align-items:center; justify-content:center; font-size:2.5rem;">🫙</div>
+      </div>
+      <div class="product-info">
+        <div class="stars">★★★★★</div>
+        <h3 class="product-name">SAP en Polvo</h3>
+        <p class="product-desc">Saponaria molida al natural. Perfecta para lavar ropa, trastes y superficies. Rinde hasta 3 veces más.</p>
+        <div class="product-footer">
+          <span class="product-price">$65 <small>MXN</small></span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-img soap-miel-bg">
+        <div class="product-soap-visual soap-miel" style="width:160px; height:70px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(74,94,42,0.7); letter-spacing:0.1em;">SAP</span>
+        </div>
+        <span class="product-badge-new">Nuevo</span>
+      </div>
+      <div class="product-info">
+        <div class="stars">★★★★★</div>
+        <h3 class="product-name">SAP en Barra</h3>
+        <p class="product-desc">Barra artesanal de saponaria compacta. Larga duración, cero desperdicio, ideal para llevar a todas partes.</p>
+        <div class="product-footer">
+          <span class="product-price">$15 <small>MXN</small></span>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cart toast -->
+  <div id="toast" style="display:none; position:fixed; bottom:2rem; right:2rem; background:var(--verde-oscuro); color:var(--crema); padding:1rem 1.5rem; border-radius:4px; font-size:0.82rem; z-index:1000; box-shadow:0 8px 30px rgba(0,0,0,0.15); animation: fadeUp 0.4s ease;">
+    ✓ Producto agregado al carrito
+  </div>
 </section>
 
 <!-- PRODUCTS -->
