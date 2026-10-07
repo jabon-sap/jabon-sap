@@ -1138,13 +1138,282 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
   }
+
+  /* ─────────────────────────────────────────
+     JABÓN SAP — REFINAMIENTO VISUAL
+     Identidad más limpia, logo protagonista
+     ───────────────────────────────────────── */
+
+  nav {
+    padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
+    min-height: 76px;
+    background: rgba(253, 250, 245, 0.94);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(74, 94, 42, 0.08);
+  }
+
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 0;
+  }
+
+  .nav-logo img {
+    width: clamp(135px, 11vw, 180px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    align-items: center;
+    gap: clamp(1.2rem, 2.4vw, 2.5rem);
+  }
+
+  .nav-links a {
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-cta {
+    padding: 0.7rem 1.25rem !important;
+  }
+
+  .hero {
+    min-height: 92vh;
+    padding-top: 76px;
+    background:
+      linear-gradient(90deg, rgba(253,250,245,1) 0%, rgba(253,250,245,0.98) 55%, rgba(245,240,232,0.72) 100%);
+  }
+
+  .hero::after {
+    right: -18%;
+    top: 3%;
+    width: 58vw;
+    height: 58vw;
+    background: radial-gradient(circle, rgba(143,164,85,0.09) 0%, transparent 68%);
+  }
+
+  .hero-text {
+    padding: 4.5rem clamp(2rem, 5vw, 5rem);
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-desc {
+    max-width: 500px;
+    font-size: 0.98rem;
+  }
+
+  .hero-visual {
+    min-height: 620px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .soap-showcase {
+    width: min(560px, 92%);
+    height: 600px;
+  }
+
+  /* Make the actual logo the main visual focal point. */
+  .hero-logo-svg {
+    top: 43%;
+    width: min(500px, 94%);
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-logo-svg img {
+    width: 100% !important;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 24px rgba(45, 58, 26, 0.10));
+  }
+
+  /* Quiet the decorative elements so they don't compete with the logo. */
+  .deco-ring {
+    width: 470px;
+    height: 470px;
+    border-color: rgba(74,94,42,0.10);
+  }
+
+  .deco-ring-2 {
+    width: 390px;
+    height: 390px;
+    border-color: rgba(74,94,42,0.07);
+    animation: none;
+  }
+
+  .soap-bar-main {
+    bottom: 35px;
+    width: 190px;
+    height: 78px;
+    opacity: 0.96;
+    box-shadow: 0 16px 38px rgba(74,94,42,0.13);
+  }
+
+  .float-badge {
+    background: rgba(253,250,245,0.94);
+    box-shadow: 0 8px 28px rgba(45,58,26,0.08);
+    border: 1px solid rgba(74,94,42,0.08);
+  }
+
+  .badge-1 { left: 2%; top: 19%; }
+  .badge-2 { right: 0; top: 38%; }
+  .badge-3 { right: 5%; bottom: 15%; }
+
+  /* More editorial product cards. */
+  .products-grid {
+    gap: 1.4rem;
+  }
+
+  .product-card {
+    border-radius: 2px;
+    box-shadow: 0 8px 28px rgba(45,58,26,0.04);
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(45,58,26,0.09);
+  }
+
+  .product-img {
+    height: 275px;
+  }
+
+  /* Tone down the animated/noisy feeling without removing the existing structure. */
+  .marquee-strip {
+    box-shadow: none;
+  }
+
+  /* Mobile: keep the larger logo but make the hero compact and intentional. */
+  @media (max-width: 900px) {
+    nav {
+      min-height: 68px;
+      padding: 0.7rem 1.25rem;
+    }
+
+    .nav-logo img {
+      width: 145px;
+    }
+
+    .hero {
+      min-height: auto;
+      padding-top: 68px;
+    }
+
+    .hero-text {
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .hero-visual {
+      display: flex;
+      min-height: 500px;
+      padding: 0 1rem 2rem;
+    }
+
+    .soap-showcase {
+      width: 100%;
+      max-width: 470px;
+      height: 500px;
+    }
+
+    .hero-logo-svg {
+      width: min(430px, 92%);
+    }
+
+    .deco-ring {
+      width: 350px;
+      height: 350px;
+    }
+
+    .deco-ring-2 {
+      width: 290px;
+      height: 290px;
+    }
+
+    .float-badge {
+      transform: scale(0.88);
+    }
+
+    .badge-1 { left: -1%; }
+    .badge-2 { right: -2%; }
+    .badge-3 { right: 0; }
+  }
+
+  @media (max-width: 520px) {
+    .nav-logo img {
+      width: 130px;
+    }
+
+    .hero-text {
+      padding-top: 3rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 14vw, 4rem);
+    }
+
+    .hero-actions {
+      width: 100%;
+    }
+
+    .hero-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .soap-showcase {
+      height: 430px;
+    }
+
+    .hero-logo-svg {
+      width: 92%;
+    }
+
+    .deco-ring {
+      width: 290px;
+      height: 290px;
+    }
+
+    .deco-ring-2 {
+      width: 235px;
+      height: 235px;
+    }
+
+    .soap-bar-main {
+      bottom: 20px;
+      width: 165px;
+      height: 68px;
+    }
+
+    .float-badge {
+      display: none;
+    }
+  }
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Jabón SAP</div>
+  <a href="#" class="nav-logo" aria-label="Jabón SAP">
+    <img src="LOGO_SAP2.png" alt="Jabón SAP">
+  </a>
   <ul class="nav-links">
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#productos">Productos</a></li>
@@ -1180,8 +1449,6 @@
       <div class="hero-logo-svg">
       <img src="LOGO_SAP2.png" width="400">
       </div>
-        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        </svg>
       </div>
 
       <!-- Soap bar -->
