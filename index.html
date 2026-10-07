@@ -3,1819 +3,3687 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jabón SAP — Jabón Orgánico Natural</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --verde-oscuro: #4a5e2a;
-    --verde-medio: #6b7f3e;
-    --verde-claro: #8fa455;
-    --crema: #f5f0e8;
-    --crema-oscuro: #ede5d4;
-    --tierra: #c4a882;
-    --tierra-oscuro: #9e7d55;
-    --blanco: #fdfaf5;
-    --texto: #2d3a1a;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--crema);
-    color: var(--texto);
-    font-family: 'Jost', sans-serif;
-    font-size: 20px;
-    overflow-x: hidden;
-  }
-
-  /* ─── NOISE TEXTURE OVERLAY ─── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.6;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(74, 94, 42, 0.12);
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--verde-oscuro);
-    letter-spacing: 0.08em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--verde-medio);
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--verde-oscuro); }
-
-  .nav-cta {
-    background: var(--verde-oscuro);
-    color: var(--crema) !important;
-    padding: 0.6rem 1.4rem;
-    border-radius: 2px;
-    transition: background 0.3s !important;
-  }
-
-  .nav-cta:hover { background: var(--verde-medio) !important; color: var(--crema) !important; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    right: -10%;
-    top: -10%;
-    width: 70vw;
-    height: 70vw;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(143,164,85,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 3rem 5rem 5rem;
-    animation: fadeUp 1s ease both;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--tierra-oscuro);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--tierra);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--verde-oscuro);
-    margin-bottom: 1.8rem;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--verde-medio);
-  }
-
-  .hero-desc {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #5a6b40;
-    max-width: 420px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--verde-oscuro);
-    color: var(--crema);
-    padding: 1rem 2.4rem;
-    border: none;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 2px;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-primary:hover {
-    background: var(--verde-medio);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(74,94,42,0.25);
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--verde-oscuro);
-    padding: 1rem 2rem;
-    border: 1.5px solid var(--verde-oscuro);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 2px;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-ghost:hover {
-    background: var(--verde-oscuro);
-    color: var(--crema);
-  }
-
-  .hero-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 1.2s ease both 0.3s;
-  }
-
-  .soap-showcase {
-    position: relative;
-    width: 420px;
-    height: 520px;
-  }
-
-  /* Big decorative circle */
-  .deco-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
-    border: 1px solid rgba(74,94,42,0.15);
-  }
-
-  .deco-ring-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 1px dashed rgba(74,94,42,0.1);
-    animation: rotate 30s linear infinite;
-  }
-
-  /* SVG Logo in hero */
-  .hero-logo-svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    z-index: 2;
-  }
-
-  .soap-bar-main {
-    position: absolute;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 90px;
-    background: linear-gradient(135deg, #e8dfc8 0%, #d4c9a8 40%, #c8b98a 100%);
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(74,94,42,0.15), inset 0 1px 0 rgba(255,255,255,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .soap-label {
-    text-align: center;
-    color: var(--verde-oscuro);
-  }
-
-  .soap-label-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.7;
-    display: block;
-  }
-
-  .soap-label-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    display: block;
-  }
-
-  .float-badge {
-    position: absolute;
-    background: var(--blanco);
-    border: 1px solid rgba(74,94,42,0.15);
-    border-radius: 8px;
-    padding: 0.6rem 1rem;
-    font-size: 0.7rem;
-    color: var(--verde-oscuro);
-    letter-spacing: 0.05em;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .badge-1 { top: 90px; left: 20px; animation-delay: -1s; }
-  .badge-2 { top: 150px; right: 0px; animation-delay: -2.5s; }
-  .badge-3 { bottom: 120px; right: 10px; animation-delay: -0.8s; }
-
-  .badge-icon { font-size: 1.2rem; display: block; margin-bottom: 0.2rem; }
-
-  /* ─── STRIP ─── */
-  .marquee-strip {
-    background: var(--verde-oscuro);
-    padding: 1rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-inner {
-    display: inline-flex;
-    gap: 3rem;
-    animation: marquee 20s linear infinite;
-  }
-
-  .marquee-item {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.7);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .marquee-item span { color: var(--tierra); }
-
-  /* ─── ABOUT ─── */
-  .section { padding: 7rem 5rem; }
-
-  .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    background: var(--blanco);
-  }
-
-  .about-visual {
-    position: relative;
-  }
-
-  .about-img-bg {
-    width: 100%;
-    aspect-ratio: 4/5;
-    background: linear-gradient(160deg, #d4e2b4 0%, #b8cc8a 30%, #8fa455 60%, #6b7f3e 100%);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-img-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.15)'/%3E%3C/svg%3E");
-  }
-
-  .about-soap-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    z-index: 1;
-    position: relative;
-  }
-
-  .soap-slice {
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .soap-1 { width: 160px; height: 60px; background: linear-gradient(135deg, #e8dfc8, #c8b98a); }
-  .soap-2 { width: 140px; height: 60px; background: linear-gradient(135deg, #d4e2b4, #9ab86a); }
-  .soap-3 { width: 120px; height: 60px; background: linear-gradient(135deg, #f0e4cc, #ddb87a); }
-
-  .about-tag {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background: var(--crema-oscuro);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid rgba(74,94,42,0.2);
-  }
-
-  .about-tag-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--verde-oscuro);
-    line-height: 1;
-  }
-
-  .about-tag-txt {
-    font-size: 0.55rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--verde-medio);
-  }
-
-  .about-text .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--tierra-oscuro);
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .about-text .section-eyebrow::before {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: var(--tierra);
-    display: block;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--verde-oscuro);
-    margin-bottom: 1.5rem;
-  }
-
-  .section-title em {
-    font-style: italic;
-    color: var(--verde-medio);
-  }
-
-  .section-body {
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: #5a6b40;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .pillar {
-    display: flex;
-    gap: 0.8rem;
-    align-items: flex-start;
-  }
-
-  .pillar-icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(74,94,42,0.08);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .pillar-text strong {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--verde-oscuro);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.2rem;
-  }
-
-  .pillar-text span {
-    font-size: 0.75rem;
-    color: #7a8f5a;
-    line-height: 1.5;
-  }
-
-  /* ─── PRODUCTS ─── */
-  .products-section {
-    padding: 7rem 5rem;
-    background: var(--crema);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .section-header .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--tierra-oscuro);
-    margin-bottom: 1rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .section-header .section-eyebrow::before,
-  .section-header .section-eyebrow::after {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: var(--tierra);
-    display: block;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .product-card {
-    background: var(--blanco);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.4s, box-shadow 0.4s;
-    cursor: pointer;
-    border: 1px solid rgba(74,94,42,0.08);
-  }
-
-  .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(74,94,42,0.12);
-  }
-
-  .product-img {
-    height: 260px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .product-soap-visual {
-    width: 130px;
-    height: 65px;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: relative;
-    transition: transform 0.4s;
-  }
-
-  .product-card:hover .product-soap-visual {
-    transform: translateY(-5px) rotate(-3deg);
-  }
-
-  /* Soap colors */
-  .soap-lavanda { background: linear-gradient(135deg, #c5bfe8 0%, #a89fd4 100%); }
-  .soap-lavanda-bg { background: linear-gradient(180deg, #ede9f8 0%, #d8d3f0 100%); }
-  .soap-menta { background: linear-gradient(135deg, #b8e8c5 0%, #7dc98a 100%); }
-  .soap-menta-bg { background: linear-gradient(180deg, #e8f8ec 0%, #c5e8ce 100%); }
-  .soap-miel { background: linear-gradient(135deg, #f0d5a0 0%, #d4a84b 100%); }
-  .soap-miel-bg { background: linear-gradient(180deg, #fdf5e4 0%, #f2dfa8 100%); }
-
-  .product-badge-new {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: var(--verde-oscuro);
-    color: var(--crema);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.7rem;
-    border-radius: 2px;
-  }
-
-  .product-info {
-    padding: 1.5rem;
-  }
-
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--verde-oscuro);
-    margin-bottom: 0.4rem;
-  }
-
-  .product-desc {
-    font-size: 0.78rem;
-    color: #7a8f5a;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-    font-weight: 300;
-  }
-
-  .product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .product-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--verde-oscuro);
-    font-weight: 600;
-  }
-
-  .product-price small {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.7rem;
-    color: var(--verde-medio);
-    font-weight: 400;
-    margin-left: 2px;
-  }
-
-  .add-btn {
-    width: 36px;
-    height: 36px;
-    background: var(--verde-oscuro);
-    color: var(--crema);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-  }
-
-  .add-btn:hover {
-    background: var(--verde-medio);
-    transform: scale(1.1);
-  }
-
-  /* ─── INGREDIENTS ─── */
-  .ingredients-section {
-    background: var(--verde-oscuro);
-    padding: 7rem 5rem;
-    color: var(--crema);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ingredients-section::before {
-    content: '';
-    position: absolute;
-    right: -5%;
-    top: -20%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: rgba(143,164,85,0.08);
-    pointer-events: none;
-  }
-
-  .ingredients-section::after {
-    content: '';
-    position: absolute;
-    left: -10%;
-    bottom: -20%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: rgba(143,164,85,0.05);
-    pointer-events: none;
-  }
-
-  .ingredients-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .ingredients-text .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--tierra);
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .ingredients-text .section-eyebrow::before {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: var(--tierra);
-    display: block;
-  }
-
-  .ingredients-text .section-title { color: var(--crema); }
-  .ingredients-text .section-body { color: rgba(245,240,232,0.7); }
-
-  .ingredients-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-top: 1.5rem;
-  }
-
-  .ingredient-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px solid rgba(245,240,232,0.1);
-  }
-
-  .ingredient-row:last-child { border-bottom: none; }
-
-  .ingredient-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.75rem;
-    color: var(--tierra);
-    width: 24px;
-    flex-shrink: 0;
-  }
-
-  .ingredient-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--crema);
-    flex: 1;
-  }
-
-  .ingredient-benefit {
-    font-size: 0.72rem;
-    color: rgba(245,240,232,0.55);
-    text-align: right;
-    font-weight: 300;
-  }
-
-  /* Visual side */
-  .ingredients-visual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .ing-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: background 0.3s;
-  }
-
-  .ing-card:hover {
-    background: rgba(255,255,255,0.08);
-  }
-
-  .ing-card:nth-child(1) { grid-column: 1 / -1; }
-
-  .ing-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
-  .ing-card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--crema);
-    margin-bottom: 0.3rem;
-  }
-  .ing-card-desc {
-    font-size: 0.7rem;
-    color: rgba(245,240,232,0.5);
-    line-height: 1.5;
-  }
-
-  /* ─── TESTIMONIALS ─── */
-  .testimonials {
-    padding: 7rem 5rem;
-    background: var(--crema-oscuro);
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .testimonial-card {
-    background: var(--blanco);
-    padding: 2rem;
-    border-radius: 4px;
-    border: 1px solid rgba(74,94,42,0.08);
-    position: relative;
-  }
-
-  .testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    color: var(--verde-claro);
-    opacity: 0.3;
-    line-height: 1;
-  }
-
-  .testimonial-text {
-    font-size: 0.88rem;
-    line-height: 1.8;
-    color: #5a6b40;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .author-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--verde-claro);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: white;
-    font-weight: 500;
-  }
-
-  .author-name {
-    font-weight: 500;
-    font-size: 0.82rem;
-    color: var(--verde-oscuro);
-  }
-
-  .author-loc {
-    font-size: 0.7rem;
-    color: #9aae72;
-  }
-
-  .stars {
-    color: #c4a535;
-    font-size: 0.75rem;
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    padding: 7rem 5rem;
-    background: var(--blanco);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    border: 1px solid rgba(74,94,42,0.06);
-  }
-
-  .cta-section::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    border: 1px solid rgba(74,94,42,0.08);
-  }
-
-  .cta-content { position: relative; z-index: 1; }
-
-  .cta-section .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--tierra-oscuro);
-    margin-bottom: 1.5rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .cta-section .section-eyebrow::before,
-  .cta-section .section-eyebrow::after {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: var(--tierra);
-    display: block;
-  }
-
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    color: var(--verde-oscuro);
-    margin-bottom: 1.2rem;
-    line-height: 1.1;
-  }
-
-  .cta-desc {
-    font-size: 0.95rem;
-    color: #7a8f5a;
-    max-width: 480px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--verde-oscuro);
-    color: var(--crema);
-    padding: 4rem 5rem 2rem;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(245,240,232,0.1);
-  }
-
-  .footer-brand .brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--crema);
-    margin-bottom: 0.8rem;
-  }
-
-  .footer-brand p {
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.55);
-    line-height: 1.8;
-    font-weight: 300;
-    max-width: 240px;
-  }
-
-  .footer-col h4 {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--tierra);
-    margin-bottom: 1.2rem;
-  }
-
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.6rem; }
-  .footer-col ul a {
-    text-decoration: none;
-    color: rgba(245,240,232,0.6);
-    font-size: 0.82rem;
-    font-weight: 300;
-    transition: color 0.3s;
-  }
-  .footer-col ul a:hover { color: var(--crema); }
-
-  .newsletter-input {
-    display: flex;
-    gap: 0;
-    margin-top: 0.5rem;
-  }
-
-  .newsletter-input input {
-    flex: 1;
-    padding: 0.7rem 1rem;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-right: none;
-    color: var(--crema);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    outline: none;
-    border-radius: 2px 0 0 2px;
-  }
-
-  .newsletter-input input::placeholder { color: rgba(245,240,232,0.35); }
-
-  .newsletter-input button {
-    padding: 0.7rem 1.2rem;
-    background: var(--tierra);
-    border: none;
-    color: var(--blanco);
-    cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 0 2px 2px 0;
-    transition: background 0.3s;
-  }
-
-  .newsletter-input button:hover { background: var(--tierra-oscuro); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-bottom p {
-    font-size: 0.72rem;
-    color: rgba(245,240,232,0.35);
-  }
-
-  .social-links { display: flex; gap: 1rem; }
-  .social-link {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    color: rgba(245,240,232,0.6);
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  .social-link:hover {
-    border-color: var(--tierra);
-    color: var(--tierra);
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-
-  @keyframes rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* Scroll reveal */
-  .reveal {
+
+:root {
+  --verde-oscuro: #4a5e2a;
+  --verde-medio: #6b7f3e;
+  --verde-claro: #8fa455;
+
+  --crema: #f5f0e8;
+  --crema-oscuro: #ede5d4;
+
+  --tierra: #c4a882;
+  --tierra-oscuro: #9e7d55;
+
+  --blanco: #fdfaf5;
+  --texto: #2d3a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--crema);
+  color: var(--texto);
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   TEXTURA DE FONDO
+   ========================================================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  min-height: 76px;
+
+  padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(253, 250, 245, 0.94);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(74, 94, 42, 0.10);
+
+  box-shadow: 0 1px 0 rgba(74, 94, 42, 0.05);
+}
+
+
+/* Logo real */
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  line-height: 0;
+}
+
+.nav-logo img {
+  width: clamp(135px, 11vw, 180px);
+
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* Links */
+
+.nav-links {
+  display: flex;
+
+  gap: clamp(1.2rem, 2.4vw, 2.5rem);
+
+  list-style: none;
+
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: var(--verde-medio);
+
+  font-size: 0.76rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  font-weight: 500;
+
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--verde-oscuro);
+}
+
+.nav-cta {
+  background: var(--verde-oscuro);
+
+  color: var(--crema) !important;
+
+  padding: 0.7rem 1.25rem;
+
+  border-radius: 2px;
+}
+
+.nav-cta:hover {
+  background: var(--verde-medio) !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: 92vh;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding-top: 76px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(253,250,245,1) 0%,
+      rgba(253,250,245,0.98) 55%,
+      rgba(245,240,232,0.72) 100%
+    );
+}
+
+.hero::after {
+  content: '';
+
+  position: absolute;
+
+  right: -18%;
+  top: 3%;
+
+  width: 58vw;
+  height: 58vw;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(143,164,85,0.09) 0%,
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Texto */
+
+.hero-text {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    4.5rem
+    clamp(2rem, 5vw, 5rem);
+
+  max-width: 720px;
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: fadeUp 1s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.25rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+
+  display: block;
+
+  width: 40px;
+
+  height: 1px;
+
+  background: var(--tierra);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+
+  font-weight: 300;
+
+  line-height: 1.05;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.5rem;
+
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: italic;
+
+  color: var(--verde-medio);
+}
+
+.hero-desc {
+  font-size: 0.98rem;
+
+  line-height: 1.8;
+
+  color: #5a6b40;
+
+  max-width: 500px;
+
+  margin-bottom: 2.5rem;
+
+  font-weight: 300;
+}
+
+
+/* Botones */
+
+.hero-actions {
+  display: flex;
+
+  gap: 1.2rem;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  padding: 1rem 2.4rem;
+
+  border: none;
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  border-radius: 2px;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--verde-medio);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(74,94,42,0.25);
+}
+
+.btn-ghost {
+  background: transparent;
+
+  color: var(--verde-oscuro);
+
+  padding: 1rem 2rem;
+
+  border: 1.5px solid var(--verde-oscuro);
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  border-radius: 2px;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero-visual {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 620px;
+
+  z-index: 2;
+
+  animation: fadeIn 1.2s ease both 0.3s;
+}
+
+.soap-showcase {
+  position: relative;
+
+  width: min(560px, 92%);
+
+  height: 600px;
+}
+
+
+/* Círculos */
+
+.deco-ring {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 470px;
+  height: 470px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(74,94,42,0.10);
+}
+
+.deco-ring-2 {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 390px;
+  height: 390px;
+
+  border-radius: 50%;
+
+  border: 1px dashed rgba(74,94,42,0.07);
+}
+
+
+/* Logo principal */
+
+.hero-logo-svg {
+  position: absolute;
+
+  top: 43%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(500px, 94%);
+
+  z-index: 2;
+}
+
+.hero-logo-svg img {
+  width: 100% !important;
+
+  max-width: 500px;
+
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(
+      0 14px 24px rgba(45,58,26,0.10)
+    );
+}
+
+
+/* Barra de jabón */
+
+.soap-bar-main {
+  position: absolute;
+
+  bottom: 35px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 190px;
+  height: 78px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e8dfc8 0%,
+      #d4c9a8 40%,
+      #c8b98a 100%
+    );
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 16px 38px rgba(74,94,42,0.13),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.soap-label {
+  text-align: center;
+
+  color: var(--verde-oscuro);
+}
+
+.soap-label-brand {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  opacity: 0.7;
+
+  display: block;
+}
+
+.soap-label-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.4rem;
+
+  font-weight: 600;
+
+  display: block;
+}
+
+
+/* Badges */
+
+.float-badge {
+  position: absolute;
+
+  background: rgba(253,250,245,0.94);
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  border-radius: 8px;
+
+  padding: 0.6rem 1rem;
+
+  font-size: 0.7rem;
+
+  color: var(--verde-oscuro);
+
+  letter-spacing: 0.05em;
+
+  box-shadow:
+    0 8px 28px rgba(45,58,26,0.08);
+
+  animation: float 5s ease-in-out infinite;
+}
+
+.badge-1 {
+  top: 19%;
+  left: 2%;
+
+  animation-delay: -1s;
+}
+
+.badge-2 {
+  top: 38%;
+  right: 0;
+
+  animation-delay: -2.5s;
+}
+
+.badge-3 {
+  bottom: 15%;
+  right: 5%;
+
+  animation-delay: -0.8s;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+
+  display: block;
+
+  margin-bottom: 0.2rem;
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee-strip {
+  background: var(--verde-oscuro);
+
+  padding: 1rem 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: inline-flex;
+
+  gap: 3rem;
+
+  animation:
+    marquee 20s linear infinite;
+}
+
+.marquee-item {
+  font-size: 0.7rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: rgba(245,240,232,0.7);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.marquee-item span {
+  color: var(--tierra);
+}
+
+
+/* =========================================================
+   NUESTRA HISTORIA
+   ========================================================= */
+
+.about {
+  display: grid;
+
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: clamp(3rem, 6vw, 7rem);
+
+  align-items: center;
+
+  padding:
+    clamp(5rem, 9vw, 9rem)
+    clamp(1.5rem, 7vw, 8rem);
+
+  background: var(--blanco);
+}
+
+
+/* Imagen */
+
+.about-visual {
+  position: relative;
+
+  width: 100%;
+}
+
+.about-image {
+  width: 100%;
+
+  max-width: 560px;
+
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+
+  height: 480px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 18px 45px rgba(45,58,26,0.10);
+}
+
+
+/* Esta parte conserva el visual original si no quieres
+   utilizar todavía la fotografía */
+
+.about-img-bg {
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  background:
+    linear-gradient(
+      160deg,
+      #d4e2b4 0%,
+      #b8cc8a 30%,
+      #8fa455 60%,
+      #6b7f3e 100%
+    );
+
+  border-radius: 4px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/*
+   IMAGEN DE NUESTRA HISTORIA
+
+   Para utilizar una fotografía real:
+   1. Sube historia-jabon-sap.jpg a GitHub.
+   2. Cambia el contenido de .about-visual por .about-image.
+*/
+
+.about-photo {
+  width: 100%;
+
+  height: 480px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 18px 45px rgba(45,58,26,0.10);
+}
+
+
+/* Etiqueta */
+
+.about-tag {
+  position: absolute;
+
+  top: -20px;
+  right: -20px;
+
+  width: 100px;
+  height: 100px;
+
+  background: var(--crema-oscuro);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(74,94,42,0.2);
+}
+
+.about-tag-num {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2rem;
+
+  font-weight: 600;
+
+  color: var(--verde-oscuro);
+
+  line-height: 1;
+}
+
+.about-tag-txt {
+  font-size: 0.55rem;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: var(--verde-medio);
+}
+
+
+/* Texto */
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.about-text .section-eyebrow::before {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.5rem;
+}
+
+.section-title em {
+  font-style: italic;
+
+  color: var(--verde-medio);
+}
+
+.section-body {
+  font-size: 0.95rem;
+
+  line-height: 1.9;
+
+  color: #5a6b40;
+
+  font-weight: 300;
+
+  margin-bottom: 2rem;
+}
+
+
+/* Pilares */
+
+.pillars {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.pillar {
+  display: flex;
+
+  gap: 0.8rem;
+
+  align-items: flex-start;
+}
+
+.pillar-icon {
+  width: 32px;
+  height: 32px;
+
+  background: rgba(74,94,42,0.08);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.9rem;
+
+  flex-shrink: 0;
+
+  margin-top: 2px;
+}
+
+.pillar-text strong {
+  display: block;
+
+  font-size: 0.8rem;
+
+  font-weight: 500;
+
+  color: var(--verde-oscuro);
+
+  letter-spacing: 0.05em;
+
+  margin-bottom: 0.2rem;
+}
+
+.pillar-text span {
+  font-size: 0.75rem;
+
+  color: #7a8f5a;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PRODUCTOS
+   ========================================================= */
+
+.products-section {
+  padding: 7rem 5rem;
+
+  background: var(--crema);
+}
+
+.section-header {
+  text-align: center;
+
+  margin-bottom: 4rem;
+}
+
+.section-header .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1rem;
+
+  justify-content: center;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.section-header .section-eyebrow::before,
+.section-header .section-eyebrow::after {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1.4rem;
+}
+
+.product-card {
+  background: var(--blanco);
+
+  border-radius: 3px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s,
+    box-shadow 0.4s;
+
+  cursor: pointer;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  box-shadow:
+    0 8px 28px rgba(45,58,26,0.04);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 40px rgba(45,58,26,0.09);
+}
+
+.product-img {
+  height: 275px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.product-soap-visual {
+  width: 130px;
+
+  height: 65px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.7rem;
+
+  color: rgba(255,255,255,0.8);
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  position: relative;
+
+  transition: transform 0.4s;
+}
+
+.product-card:hover .product-soap-visual {
+  transform:
+    translateY(-5px)
+    rotate(-3deg);
+}
+
+
+/* Fondos */
+
+.soap-lavanda-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #ede9f8 0%,
+      #d8d3f0 100%
+    );
+}
+
+.soap-menta-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #e8f8ec 0%,
+      #c5e8ce 100%
+    );
+}
+
+.soap-miel-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #fdf5e4 0%,
+      #f2dfa8 100%
+    );
+}
+
+.soap-miel {
+  background:
+    linear-gradient(
+      135deg,
+      #f0d5a0 0%,
+      #d4a84b 100%
+    );
+}
+
+
+/* Badge */
+
+.product-badge-new {
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  padding: 0.3rem 0.7rem;
+
+  border-radius: 2px;
+}
+
+
+/* Información */
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.4rem;
+
+  font-weight: 500;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 0.4rem;
+}
+
+.product-desc {
+  font-size: 0.78rem;
+
+  color: #7a8f5a;
+
+  line-height: 1.6;
+
+  margin-bottom: 1.2rem;
+
+  font-weight: 300;
+}
+
+.product-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.6rem;
+
+  color: var(--verde-oscuro);
+
+  font-weight: 600;
+}
+
+.product-price small {
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.7rem;
+
+  color: var(--verde-medio);
+
+  font-weight: 400;
+}
+
+.add-btn {
+  width: 36px;
+  height: 36px;
+
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: all 0.3s;
+}
+
+.add-btn:hover {
+  background: var(--verde-medio);
+
+  transform: scale(1.1);
+}
+
+.stars {
+  color: #c4a535;
+
+  font-size: 0.75rem;
+
+  margin-bottom: 0.8rem;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   INGREDIENTES
+   ========================================================= */
+
+.ingredients-section {
+  background: var(--verde-oscuro);
+
+  padding: 7rem 5rem;
+
+  color: var(--crema);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.ingredients-section::before {
+  content: '';
+
+  position: absolute;
+
+  right: -5%;
+  top: -20%;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(143,164,85,0.08);
+
+  pointer-events: none;
+}
+
+.ingredients-section::after {
+  content: '';
+
+  position: absolute;
+
+  left: -10%;
+  bottom: -20%;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  background: rgba(143,164,85,0.05);
+
+  pointer-events: none;
+}
+
+.ingredients-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 5rem;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+.ingredients-text .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra);
+
+  margin-bottom: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.ingredients-text .section-eyebrow::before {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.ingredients-text .section-title {
+  color: var(--crema);
+}
+
+.ingredients-text .section-body {
+  color: rgba(245,240,232,0.7);
+}
+
+.ingredients-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.2rem;
+
+  margin-top: 1.5rem;
+}
+
+.ingredient-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1.2rem;
+
+  border-bottom:
+    1px solid rgba(245,240,232,0.1);
+}
+
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+
+.ingredient-num {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.75rem;
+
+  color: var(--tierra);
+
+  width: 24px;
+
+  flex-shrink: 0;
+}
+
+.ingredient-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  font-weight: 500;
+
+  color: var(--crema);
+
+  flex: 1;
+}
+
+.ingredient-benefit {
+  font-size: 0.72rem;
+
+  color: rgba(245,240,232,0.55);
+
+  text-align: right;
+
+  font-weight: 300;
+}
+
+
+/* Visual */
+
+.ingredients-visual {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1rem;
+}
+
+.ing-card {
+  background: rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 8px;
+
+  padding: 1.5rem;
+
+  text-align: center;
+
+  transition: background 0.3s;
+}
+
+.ing-card:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.ing-card:nth-child(1) {
+  grid-column: 1 / -1;
+}
+
+.ing-emoji {
+  font-size: 2.5rem;
+
+  margin-bottom: 0.8rem;
+
+  display: block;
+}
+
+.ing-card-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  color: var(--crema);
+
+  margin-bottom: 0.3rem;
+}
+
+.ing-card-desc {
+  font-size: 0.7rem;
+
+  color: rgba(245,240,232,0.5);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TESTIMONIOS
+   ========================================================= */
+
+.testimonials {
+  padding: 7rem 5rem;
+
+  background: var(--crema-oscuro);
+}
+
+.testimonials-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 2rem;
+
+  margin-top: 4rem;
+}
+
+.testimonial-card {
+  background: var(--blanco);
+
+  padding: 2rem;
+
+  border-radius: 4px;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+
+  position: absolute;
+
+  top: -10px;
+  left: 20px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5rem;
+
+  color: var(--verde-claro);
+
+  opacity: 0.3;
+
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 0.88rem;
+
+  line-height: 1.8;
+
+  color: #5a6b40;
+
+  font-weight: 300;
+
+  margin-bottom: 1.5rem;
+
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: var(--verde-claro);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.85rem;
+
+  color: white;
+
+  font-weight: 500;
+}
+
+.author-name {
+  font-weight: 500;
+
+  font-size: 0.82rem;
+
+  color: var(--verde-oscuro);
+}
+
+.author-loc {
+  font-size: 0.7rem;
+
+  color: #9aae72;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta-section {
+  padding: 7rem 5rem;
+
+  background: var(--blanco);
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(74,94,42,0.06);
+}
+
+.cta-section::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+}
+
+.cta-content {
+  position: relative;
+
+  z-index: 1;
+}
+
+.cta-section .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.5rem;
+
+  justify-content: center;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.cta-section .section-eyebrow::before,
+.cta-section .section-eyebrow::after {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  font-weight: 300;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.2rem;
+
+  line-height: 1.1;
+}
+
+.cta-desc {
+  font-size: 0.95rem;
+
+  color: #7a8f5a;
+
+  max-width: 480px;
+
+  margin:
+    0 auto 2.5rem;
+
+  line-height: 1.8;
+
+  font-weight: 300;
+}
+
+.cta-buttons {
+  display: flex;
+
+  gap: 1rem;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  padding: 4rem 5rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr 1.5fr;
+
+  gap: 3rem;
+
+  margin-bottom: 3rem;
+
+  padding-bottom: 3rem;
+
+  border-bottom:
+    1px solid rgba(245,240,232,0.1);
+}
+
+.footer-brand .brand-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.8rem;
+
+  font-weight: 300;
+
+  color: var(--crema);
+
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+
+  color: rgba(245,240,232,0.55);
+
+  line-height: 1.8;
+
+  font-weight: 300;
+
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra);
+
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-col ul a {
+  text-decoration: none;
+
+  color: rgba(245,240,232,0.6);
+
+  font-size: 0.82rem;
+
+  font-weight: 300;
+
+  transition: color 0.3s;
+}
+
+.footer-col ul a:hover {
+  color: var(--crema);
+}
+
+.newsletter-input {
+  display: flex;
+
+  gap: 0;
+
+  margin-top: 0.5rem;
+}
+
+.newsletter-input input {
+  flex: 1;
+
+  padding: 0.7rem 1rem;
+
+  background: rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  border-right: none;
+
+  color: var(--crema);
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  outline: none;
+
+  border-radius: 2px 0 0 2px;
+}
+
+.newsletter-input input::placeholder {
+  color: rgba(245,240,232,0.35);
+}
+
+.newsletter-input button {
+  padding: 0.7rem 1.2rem;
+
+  background: var(--tierra);
+
+  border: none;
+
+  color: var(--blanco);
+
+  cursor: pointer;
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  border-radius: 0 2px 2px 0;
+
+  transition: background 0.3s;
+}
+
+.newsletter-input button:hover {
+  background: var(--tierra-oscuro);
+}
+
+.footer-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 0.72rem;
+
+  color: rgba(245,240,232,0.35);
+}
+
+.social-links {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.social-link {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.75rem;
+
+  color: rgba(245,240,232,0.6);
+
+  text-decoration: none;
+
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  border-color: var(--tierra);
+
+  color: var(--tierra);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes fadeUp {
+
+  from {
     opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(30px);
   }
-  .reveal.visible {
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    .hero, .about, .ingredients-grid { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .products-grid, .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .section, .products-section, .ingredients-section, .testimonials, .cta-section { padding: 4rem 2rem; }
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
   }
 
-  /* ─────────────────────────────────────────
-     JABÓN SAP — REFINAMIENTO VISUAL
-     Identidad más limpia, logo protagonista
-     ───────────────────────────────────────── */
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes float {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+}
+
+@keyframes marquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* Scroll reveal */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
 
   nav {
-    padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
-    min-height: 76px;
-    background: rgba(253, 250, 245, 0.94);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 1px 0 rgba(74, 94, 42, 0.08);
-  }
+    min-height: 68px;
 
-  .nav-logo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    line-height: 0;
+    padding:
+      0.7rem 1.25rem;
   }
 
   .nav-logo img {
-    width: clamp(135px, 11vw, 180px);
-    height: auto;
-    display: block;
-    object-fit: contain;
+    width: 145px;
   }
 
   .nav-links {
-    align-items: center;
-    gap: clamp(1.2rem, 2.4vw, 2.5rem);
-  }
-
-  .nav-links a {
-    font-size: 0.76rem;
-    letter-spacing: 0.12em;
-  }
-
-  .nav-cta {
-    padding: 0.7rem 1.25rem !important;
+    display: none;
   }
 
   .hero {
-    min-height: 92vh;
-    padding-top: 76px;
-    background:
-      linear-gradient(90deg, rgba(253,250,245,1) 0%, rgba(253,250,245,0.98) 55%, rgba(245,240,232,0.72) 100%);
-  }
+    min-height: auto;
 
-  .hero::after {
-    right: -18%;
-    top: 3%;
-    width: 58vw;
-    height: 58vw;
-    background: radial-gradient(circle, rgba(143,164,85,0.09) 0%, transparent 68%);
+    grid-template-columns: 1fr;
+
+    padding-top: 68px;
   }
 
   .hero-text {
-    padding: 4.5rem clamp(2rem, 5vw, 5rem);
-    max-width: 720px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-eyebrow {
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-title {
-    font-size: clamp(3.2rem, 5.8vw, 5.4rem);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-desc {
-    max-width: 500px;
-    font-size: 0.98rem;
+    padding:
+      4rem 1.5rem 2rem;
   }
 
   .hero-visual {
-    min-height: 620px;
-    position: relative;
-    z-index: 2;
+    display: flex;
+
+    min-height: 500px;
+
+    padding:
+      0 1rem 2rem;
   }
 
   .soap-showcase {
-    width: min(560px, 92%);
-    height: 600px;
+    width: 100%;
+
+    max-width: 470px;
+
+    height: 500px;
   }
 
-  /* Make the actual logo the main visual focal point. */
   .hero-logo-svg {
-    top: 43%;
-    width: min(500px, 94%);
-    transform: translate(-50%, -50%);
+    width: min(430px, 92%);
   }
 
-  .hero-logo-svg img {
-    width: 100% !important;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 14px 24px rgba(45, 58, 26, 0.10));
-  }
-
-  /* Quiet the decorative elements so they don't compete with the logo. */
   .deco-ring {
-    width: 470px;
-    height: 470px;
-    border-color: rgba(74,94,42,0.10);
+    width: 350px;
+    height: 350px;
   }
 
   .deco-ring-2 {
-    width: 390px;
-    height: 390px;
-    border-color: rgba(74,94,42,0.07);
-    animation: none;
-  }
-
-  .soap-bar-main {
-    bottom: 35px;
-    width: 190px;
-    height: 78px;
-    opacity: 0.96;
-    box-shadow: 0 16px 38px rgba(74,94,42,0.13);
+    width: 290px;
+    height: 290px;
   }
 
   .float-badge {
-    background: rgba(253,250,245,0.94);
-    box-shadow: 0 8px 28px rgba(45,58,26,0.08);
-    border: 1px solid rgba(74,94,42,0.08);
+    transform: scale(0.88);
   }
 
-  .badge-1 { left: 2%; top: 19%; }
-  .badge-2 { right: 0; top: 38%; }
-  .badge-3 { right: 5%; bottom: 15%; }
-
-  /* More editorial product cards. */
-  .products-grid {
-    gap: 1.4rem;
+  .badge-1 {
+    left: -1%;
   }
 
-  .product-card {
-    border-radius: 2px;
-    box-shadow: 0 8px 28px rgba(45,58,26,0.04);
+  .badge-2 {
+    right: -2%;
   }
 
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(45,58,26,0.09);
+  .badge-3 {
+    right: 0;
   }
 
-  .product-img {
-    height: 275px;
+
+  /* Historia */
+
+  .about {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
   }
 
-  /* Tone down the animated/noisy feeling without removing the existing structure. */
-  .marquee-strip {
-    box-shadow: none;
+  .about-visual {
+    order: 1;
   }
 
-  /* Mobile: keep the larger logo but make the hero compact and intentional. */
-  @media (max-width: 900px) {
-    nav {
-      min-height: 68px;
-      padding: 0.7rem 1.25rem;
-    }
-
-    .nav-logo img {
-      width: 145px;
-    }
-
-    .hero {
-      min-height: auto;
-      padding-top: 68px;
-    }
-
-    .hero-text {
-      padding: 4rem 1.5rem 2rem;
-    }
-
-    .hero-visual {
-      display: flex;
-      min-height: 500px;
-      padding: 0 1rem 2rem;
-    }
-
-    .soap-showcase {
-      width: 100%;
-      max-width: 470px;
-      height: 500px;
-    }
-
-    .hero-logo-svg {
-      width: min(430px, 92%);
-    }
-
-    .deco-ring {
-      width: 350px;
-      height: 350px;
-    }
-
-    .deco-ring-2 {
-      width: 290px;
-      height: 290px;
-    }
-
-    .float-badge {
-      transform: scale(0.88);
-    }
-
-    .badge-1 { left: -1%; }
-    .badge-2 { right: -2%; }
-    .badge-3 { right: 0; }
+  .about-text {
+    order: 2;
   }
 
-  @media (max-width: 520px) {
-    .nav-logo img {
-      width: 130px;
-    }
-
-    .hero-text {
-      padding-top: 3rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 14vw, 4rem);
-    }
-
-    .hero-actions {
-      width: 100%;
-    }
-
-    .hero-actions a {
-      width: 100%;
-      text-align: center;
-    }
-
-    .soap-showcase {
-      height: 430px;
-    }
-
-    .hero-logo-svg {
-      width: 92%;
-    }
-
-    .deco-ring {
-      width: 290px;
-      height: 290px;
-    }
-
-    .deco-ring-2 {
-      width: 235px;
-      height: 235px;
-    }
-
-    .soap-bar-main {
-      bottom: 20px;
-      width: 165px;
-      height: 68px;
-    }
-
-    .float-badge {
-      display: none;
-    }
+  .about-image img,
+  .about-photo {
+    height: 380px;
   }
+
+
+  /* Productos */
+
+  .products-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Ingredientes */
+
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Footer */
+
+  .footer-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .products-section,
+  .ingredients-section,
+  .testimonials,
+  .cta-section {
+    padding:
+      4rem 2rem;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .nav-logo img {
+    width: 130px;
+  }
+
+  .hero-text {
+    padding-top: 3rem;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .soap-showcase {
+    height: 430px;
+  }
+
+  .hero-logo-svg {
+    width: 92%;
+  }
+
+  .deco-ring {
+    width: 290px;
+    height: 290px;
+  }
+
+  .deco-ring-2 {
+    width: 235px;
+    height: 235px;
+  }
+
+  .soap-bar-main {
+    bottom: 20px;
+
+    width: 165px;
+
+    height: 68px;
+  }
+
+  .float-badge {
+    display: none;
+  }
+
+  .about {
+    padding:
+      4rem 1.25rem;
+  }
+
+  .about-image img,
+  .about-photo {
+    height: 300px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredients-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    align-items: flex-start;
+  }
+
+}
 
 </style>
 </head>
+
+
 <body>
 
-<!-- NAV -->
+
+<!-- ======================================================
+     NAVEGACIÓN
+     ====================================================== -->
+
 <nav>
+
   <a href="#" class="nav-logo" aria-label="Jabón SAP">
-    <img src="LOGO_SAP2.png" alt="Jabón SAP">
+    <img
+      src="LOGO_SAP2.png"
+      alt="Jabón SAP"
+    >
   </a>
+
   <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#ingredientes">Ingredientes</a></li>
-    <li><a href="#productos" class="nav-cta">Comprar ahora</a></li>
+
+    <li>
+      <a href="#nosotros">
+        Nosotros
+      </a>
+    </li>
+
+    <li>
+      <a href="#productos">
+        Productos
+      </a>
+    </li>
+
+    <li>
+      <a href="#ingredientes">
+        Ingredientes
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#productos"
+        class="nav-cta"
+      >
+        Comprar ahora
+      </a>
+    </li>
+
   </ul>
+
 </nav>
 
-<!-- HERO -->
+
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
 <section class="hero">
+
+
   <div class="hero-text">
-    <p class="hero-eyebrow">El poder de la saponaria natural</p>
-    <h1 class="hero-title">
-      Limpieza pura<br>
-      con <em>Saponaria</em><br>
-      100% natural
-    </h1>
-    <p class="hero-desc">
-      Jabón SAP está elaborado a base de saponaria (Sapindus saponaria), una planta con saponinas naturales que limpian profundamente sin dañar tu piel ni el medio ambiente.
+
+    <p class="hero-eyebrow">
+      El poder de la saponaria natural
     </p>
+
+    <h1 class="hero-title">
+
+      Limpieza pura<br>
+
+      con <em>Saponaria</em><br>
+
+      100% natural
+
+    </h1>
+
+    <p class="hero-desc">
+
+      Jabón SAP está elaborado a base de saponaria
+      (Sapindus saponaria), una planta con saponinas
+      naturales que limpian profundamente sin dañar
+      tu piel ni el medio ambiente.
+
+    </p>
+
     <div class="hero-actions">
-      <a href="#productos" class="btn-primary">Ver productos</a>
-      <a href="#nosotros" class="btn-ghost">Nuestra historia</a>
+
+      <a
+        href="#productos"
+        class="btn-primary"
+      >
+        Ver productos
+      </a>
+
+      <a
+        href="#nosotros"
+        class="btn-ghost"
+      >
+        Nuestra historia
+      </a>
+
     </div>
+
   </div>
+
+
 
   <div class="hero-visual">
+
     <div class="soap-showcase">
+
+
       <div class="deco-ring"></div>
+
       <div class="deco-ring-2"></div>
 
-      <!-- SAP Logo SVG recreated -->
+
+      <!-- LOGO PRINCIPAL -->
+
       <div class="hero-logo-svg">
-      <img src="LOGO_SAP2.png" width="400">
-      </div>
+
+        <img
+          src="LOGO_SAP2.png"
+          alt="Logo Jabón SAP"
+        >
+
       </div>
 
-      <!-- Soap bar -->
+
+      <!-- BARRA DE JABÓN -->
+
       <div class="soap-bar-main">
+
         <div class="soap-label">
-          <span class="soap-label-brand">Jabón</span>
-          <span class="soap-label-name">SAP</span>
+
+          <span class="soap-label-brand">
+            Jabón
+          </span>
+
+          <span class="soap-label-name">
+            SAP
+          </span>
+
         </div>
+
       </div>
 
-      <!-- Floating badges -->
+
+      <!-- BADGES -->
+
       <div class="float-badge badge-1">
-        <span class="badge-icon">🌿</span>
+
+        <span class="badge-icon">
+          🌿
+        </span>
+
         100% Orgánico
+
       </div>
+
+
       <div class="float-badge badge-2">
-        <span class="badge-icon">🐰</span>
+
+        <span class="badge-icon">
+          🐰
+        </span>
+
         Cruelty Free
+
       </div>
+
+
       <div class="float-badge badge-3">
-        <span class="badge-icon">✨</span>
+
+        <span class="badge-icon">
+          ✨
+        </span>
+
         Sin parabenos
+
       </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<!-- MARQUEE -->
+
+
+<!-- ======================================================
+     MARQUEE
+     ====================================================== -->
+
 <div class="marquee-strip">
+
   <div class="marquee-inner">
-    <span class="marquee-item">100% Saponaria natural <span>✦</span></span>
-    <span class="marquee-item">Jabón líquido <span>✦</span></span>
-    <span class="marquee-item">Jabón en polvo <span>✦</span></span>
-    <span class="marquee-item">Jabón en barra <span>✦</span></span>
-    <span class="marquee-item">Sin químicos agresivos <span>✦</span></span>
-    <span class="marquee-item">Cruelty Free <span>✦</span></span>
-    <span class="marquee-item">100% Saponaria natural <span>✦</span></span>
-    <span class="marquee-item">Jabón líquido <span>✦</span></span>
-    <span class="marquee-item">Jabón en polvo <span>✦</span></span>
-    <span class="marquee-item">Jabón en barra <span>✦</span></span>
-    <span class="marquee-item">Sin químicos agresivos <span>✦</span></span>
-    <span class="marquee-item">Cruelty Free <span>✦</span></span>
+
+    <span class="marquee-item">
+      100% Saponaria natural
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón líquido
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en polvo
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en barra
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Sin químicos agresivos
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Cruelty Free
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      100% Saponaria natural
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón líquido
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en polvo
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en barra
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Sin químicos agresivos
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Cruelty Free
+      <span>✦</span>
+    </span>
+
   </div>
+
 </div>
 
-<!-- ABOUT -->
-<section class="about section" id="nosotros">
+
+
+<!-- ======================================================
+     NUESTRA HISTORIA
+     ====================================================== -->
+
+<section
+  class="about"
+  id="nosotros"
+>
+
+
+  <!-- IMAGEN DE NUESTRA HISTORIA -->
+
   <div class="about-visual reveal">
-    <div class="about-img-bg">
-      <div class="about-soap-stack">
-        <div class="soap-slice soap-1"></div>
-        <div class="soap-slice soap-2"></div>
-        <div class="soap-slice soap-3"></div>
-      </div>
+
+    <div class="about-image">
+
+      <img
+        src="historia-jabon-sap.jpg"
+        alt="Historia de Jabón SAP"
+        class="about-photo"
+      >
+
     </div>
+
+
     <div class="about-tag">
-      <span class="about-tag-num">100</span>
-      <span class="about-tag-txt">% Natural</span>
+
+      <span class="about-tag-num">
+        100
+      </span>
+
+      <span class="about-tag-txt">
+        % Natural
+      </span>
+
     </div>
+
   </div>
+
+
+
+  <!-- TEXTO ORIGINAL -->
+
   <div class="about-text reveal">
-    <p class="section-eyebrow">Nuestra historia</p>
-    <h2 class="section-title">El secreto está en la <em>Saponaria</em></h2>
-    <p class="section-body">
-      Jabón SAP está formulado a base de <strong>Sapindus saponaria</strong>, conocida como "árbol del jabón". Sus frutos contienen saponinas naturales, surfactantes vegetales que limpian profundamente sin irritar la piel ni contaminar el agua.
+
+    <p class="section-eyebrow">
+      Nuestra historia
     </p>
+
+    <h2 class="section-title">
+
+      El secreto está en la
+      <em>Saponaria</em>
+
+    </h2>
+
+
     <p class="section-body">
-      Sin parabenos, sin sulfatos, sin colorantes artificiales. Solo el poder limpiador que la naturaleza ya nos da, en tres presentaciones para adaptarse a tu estilo de vida.
+
+      Jabón SAP está formulado a base de
+      <strong>Sapindus saponaria</strong>,
+      conocida como "árbol del jabón".
+      Sus frutos contienen saponinas naturales,
+      surfactantes vegetales que limpian
+      profundamente sin irritar la piel ni
+      contaminar el agua.
+
     </p>
+
+
+    <p class="section-body">
+
+      Sin parabenos, sin sulfatos, sin colorantes
+      artificiales. Solo el poder limpiador que
+      la naturaleza ya nos da, en tres
+      presentaciones para adaptarse a tu estilo
+      de vida.
+
+    </p>
+
+
     <div class="pillars">
+
+
       <div class="pillar">
-        <div class="pillar-icon">🌿</div>
-        <div class="pillar-text">
-          <strong>Saponaria pura</strong>
-          <span>Ingrediente único y 100% natural</span>
+
+        <div class="pillar-icon">
+          🌿
         </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Saponaria pura
+          </strong>
+
+          <span>
+            Ingrediente único y 100% natural
+          </span>
+
+        </div>
+
       </div>
+
+
+
       <div class="pillar">
-        <div class="pillar-icon">💧</div>
-        <div class="pillar-text">
-          <strong>3 presentaciones</strong>
-          <span>Líquido, polvo y en barra</span>
+
+        <div class="pillar-icon">
+          💧
         </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            3 presentaciones
+          </strong>
+
+          <span>
+            Líquido, polvo y en barra
+          </span>
+
+        </div>
+
       </div>
+
+
+
       <div class="pillar">
-        <div class="pillar-icon">🌍</div>
-        <div class="pillar-text">
-          <strong>Eco-friendly</strong>
-          <span>Biodegradable, cuida ríos y suelos</span>
+
+        <div class="pillar-icon">
+          🌍
         </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Eco-friendly
+          </strong>
+
+          <span>
+            Biodegradable, cuida ríos y suelos
+          </span>
+
+        </div>
+
       </div>
+
+
+
       <div class="pillar">
-        <div class="pillar-icon">💚</div>
-        <div class="pillar-text">
-          <strong>Sin crueldad</strong>
-          <span>Nunca probado en animales</span>
+
+        <div class="pillar-icon">
+          💚
         </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Sin crueldad
+          </strong>
+
+          <span>
+            Nunca probado en animales
+          </span>
+
+        </div>
+
       </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<!-- PRODUCTS -->
-<section class="products-section" id="productos">
+
+
+<!-- ======================================================
+     PRODUCTOS
+     ====================================================== -->
+
+<section
+  class="products-section"
+  id="productos"
+>
+
+
   <div class="section-header reveal">
-    <p class="section-eyebrow">Nuestra colección</p>
-    <h2 class="section-title">Encuentra tu <em>jabón ideal</em></h2>
+
+    <p class="section-eyebrow">
+      Nuestra colección
+    </p>
+
+    <h2 class="section-title">
+
+      Encuentra tu
+      <em>jabón ideal</em>
+
+    </h2>
+
   </div>
+
+
 
   <div class="products-grid">
 
-    <div class="product-card reveal">
-      <div class="product-img soap-lavanda-bg">
-        <div class="product-soap-visual" style="background:linear-gradient(135deg,#c8dba0,#7aaa4a); border-radius:50px; width:80px; height:120px; display:flex; align-items:center; justify-content:center; font-size:2.5rem;">🧴</div>
-        <span class="product-badge-new">Más vendido</span>
-      </div>
-      <div class="product-info">
-        <div class="stars">★★★★★</div>
-        <h3 class="product-name">SAP Líquido</h3>
-        <p class="product-desc">Jabón líquido de saponaria pura. Ideal para manos, cuerpo y uso diario. Suave, espumoso y biodegradable.</p>
-        <div class="product-footer">
-          <span class="product-price">$65 <small>MXN</small></span>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
+
+    <!-- PRODUCTO 1 -->
 
     <div class="product-card reveal">
-      <div class="product-img soap-menta-bg">
-        <div class="product-soap-visual" style="background:linear-gradient(135deg,#e8dfc8,#c4a882); border-radius:8px; width:110px; height:90px; display:flex; align-items:center; justify-content:center; font-size:2.5rem;">🫙</div>
-      </div>
-      <div class="product-info">
-        <div class="stars">★★★★★</div>
-        <h3 class="product-name">SAP en Polvo</h3>
-        <p class="product-desc">Saponaria molida al natural. Perfecta para lavar ropa, trastes y superficies. Rinde hasta 3 veces más.</p>
-        <div class="product-footer">
-          <span class="product-price">$65 <small>MXN</small></span>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
+
+      <div
+        class="product-img soap-lavanda-bg"
+      >
+
+        <div
+          class="product-soap-visual"
+          style="
+            background:linear-gradient(
+              135deg,
+              #c8dba0,
+              #7aaa4a
+            );
+            border-radius:50px;
+            width:80px;
+            height:120px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:2.5rem;
+          "
+        >
+          🧴
         </div>
+
+        <span class="product-badge-new">
+          Más vendido
+        </span>
+
       </div>
+
+
+      <div class="product-info">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <h3 class="product-name">
+          SAP Líquido
+        </h3>
+
+        <p class="product-desc">
+
+          Jabón líquido de saponaria pura.
+          Ideal para manos, cuerpo y uso diario.
+          Suave, espumoso y biodegradable.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $65
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
     </div>
 
+
+
+    <!-- PRODUCTO 2 -->
+
     <div class="product-card reveal">
-      <div class="product-img soap-miel-bg">
-        <div class="product-soap-visual soap-miel" style="width:160px; height:70px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(74,94,42,0.7); letter-spacing:0.1em;">SAP</span>
+
+      <div
+        class="product-img soap-menta-bg"
+      >
+
+        <div
+          class="product-soap-visual"
+          style="
+            background:linear-gradient(
+              135deg,
+              #e8dfc8,
+              #c4a882
+            );
+            border-radius:8px;
+            width:110px;
+            height:90px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:2.5rem;
+          "
+        >
+          🫙
         </div>
-        <span class="product-badge-new">Nuevo</span>
+
       </div>
+
+
       <div class="product-info">
-        <div class="stars">★★★★★</div>
-        <h3 class="product-name">SAP en Barra</h3>
-        <p class="product-desc">Barra artesanal de saponaria compacta. Larga duración, cero desperdicio, ideal para llevar a todas partes.</p>
-        <div class="product-footer">
-          <span class="product-price">$15 <small>MXN</small></span>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
+
+        <div class="stars">
+          ★★★★★
         </div>
+
+        <h3 class="product-name">
+          SAP en Polvo
+        </h3>
+
+        <p class="product-desc">
+
+          Saponaria molida al natural.
+          Perfecta para lavar ropa, trastes y
+          superficies. Rinde hasta 3 veces más.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $65
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
       </div>
+
     </div>
+
+
+
+    <!-- PRODUCTO 3 -->
+
+    <div class="product-card reveal">
+
+      <div
+        class="product-img soap-miel-bg"
+      >
+
+        <div
+          class="product-soap-visual soap-miel"
+          style="
+            width:160px;
+            height:70px;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+          "
+        >
+
+          <span
+            style="
+              font-family:
+              'Cormorant Garamond',serif;
+              font-size:1rem;
+              color:rgba(74,94,42,0.7);
+              letter-spacing:0.1em;
+            "
+          >
+            SAP
+          </span>
+
+        </div>
+
+        <span class="product-badge-new">
+          Nuevo
+        </span>
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <h3 class="product-name">
+          SAP en Barra
+        </h3>
+
+        <p class="product-desc">
+
+          Barra artesanal de saponaria compacta.
+          Larga duración, cero desperdicio,
+          ideal para llevar a todas partes.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $15
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
 
   </div>
 
-  <!-- Cart toast -->
-  <div id="toast" style="display:none; position:fixed; bottom:2rem; right:2rem; background:var(--verde-oscuro); color:var(--crema); padding:1rem 1.5rem; border-radius:4px; font-size:0.82rem; z-index:1000; box-shadow:0 8px 30px rgba(0,0,0,0.15); animation: fadeUp 0.4s ease;">
+
+
+  <!-- MENSAJE CARRITO -->
+
+  <div
+    id="toast"
+    style="
+      display:none;
+      position:fixed;
+      bottom:2rem;
+      right:2rem;
+      background:var(--verde-oscuro);
+      color:var(--crema);
+      padding:1rem 1.5rem;
+      border-radius:4px;
+      font-size:0.82rem;
+      z-index:1000;
+      box-shadow:
+      0 8px 30px rgba(0,0,0,0.15);
+      animation:fadeUp 0.4s ease;
+    "
+  >
     ✓ Producto agregado al carrito
   </div>
+
 </section>
 
-<!-- INGREDIENTS -->
-<section class="ingredients-section" id="ingredientes">
+
+
+<!-- ======================================================
+     INGREDIENTES
+     ====================================================== -->
+
+<section
+  class="ingredients-section"
+  id="ingredientes"
+>
+
+
   <div class="ingredients-grid">
+
+
     <div class="ingredients-text reveal">
-      <p class="section-eyebrow">Pureza garantizada</p>
-      <h2 class="section-title">Un solo ingrediente, <em>infinitos beneficios</em></h2>
-      <p class="section-body">La Saponaria (Sapindus saponaria) es una planta cuyas semillas y frutos contienen saponinas, surfactantes 100% vegetales que limpian igual o mejor que los detergentes sintéticos, sin dañar la piel ni el ecosistema.</p>
+
+      <p class="section-eyebrow">
+        Pureza garantizada
+      </p>
+
+      <h2 class="section-title">
+
+        Un solo ingrediente,
+        <em>infinitos beneficios</em>
+
+      </h2>
+
+
+      <p class="section-body">
+
+        La Saponaria (Sapindus saponaria)
+        es una planta cuyas semillas y frutos
+        contienen saponinas, surfactantes 100%
+        vegetales que limpian igual o mejor que
+        los detergentes sintéticos, sin dañar
+        la piel ni el ecosistema.
+
+      </p>
+
+
       <div class="ingredients-list">
+
+
         <div class="ingredient-row">
-          <span class="ingredient-num">01</span>
-          <span class="ingredient-name">Saponinas naturales</span>
-          <span class="ingredient-benefit">Limpieza profunda sin irritar</span>
+
+          <span class="ingredient-num">
+            01
+          </span>
+
+          <span class="ingredient-name">
+            Saponinas naturales
+          </span>
+
+          <span class="ingredient-benefit">
+            Limpieza profunda sin irritar
+          </span>
+
         </div>
+
+
         <div class="ingredient-row">
-          <span class="ingredient-num">02</span>
-          <span class="ingredient-name">Acción antifúngica</span>
-          <span class="ingredient-benefit">Protege la piel naturalmente</span>
+
+          <span class="ingredient-num">
+            02
+          </span>
+
+          <span class="ingredient-name">
+            Acción antifúngica
+          </span>
+
+          <span class="ingredient-benefit">
+            Protege la piel naturalmente
+          </span>
+
         </div>
+
+
         <div class="ingredient-row">
-          <span class="ingredient-num">03</span>
-          <span class="ingredient-name">pH neutro</span>
-          <span class="ingredient-benefit">Compatible con todo tipo de piel</span>
+
+          <span class="ingredient-num">
+            03
+          </span>
+
+          <span class="ingredient-name">
+            pH neutro
+          </span>
+
+          <span class="ingredient-benefit">
+            Compatible con todo tipo de piel
+          </span>
+
         </div>
+
+
         <div class="ingredient-row">
-          <span class="ingredient-num">04</span>
-          <span class="ingredient-name">100% biodegradable</span>
-          <span class="ingredient-benefit">No contamina ríos ni suelos</span>
+
+          <span class="ingredient-num">
+            04
+          </span>
+
+          <span class="ingredient-name">
+            100% biodegradable
+          </span>
+
+          <span class="ingredient-benefit">
+            No contamina ríos ni suelos
+          </span>
+
         </div>
+
+
         <div class="ingredient-row">
-          <span class="ingredient-num">05</span>
-          <span class="ingredient-name">Sin aditivos químicos</span>
-          <span class="ingredient-benefit">Puro como la naturaleza lo creó</span>
+
+          <span class="ingredient-num">
+            05
+          </span>
+
+          <span class="ingredient-name">
+            Sin aditivos químicos
+          </span>
+
+          <span class="ingredient-benefit">
+            Puro como la naturaleza lo creó
+          </span>
+
         </div>
+
+
       </div>
+
     </div>
+
+
 
     <div class="ingredients-visual reveal">
+
+
       <div class="ing-card">
-        <img src="jaboncillo.jpg"
-             alt="Frutos de Sapindus saponaria"
-             style="width:100%; height:180px; object-fit:cover; border-radius:6px; margin-bottom:0.8rem;">
-        <div class="ing-card-name">Sapindus saponaria</div>
-        <div class="ing-card-desc">El árbol del jabón — sus frutos son el corazón de cada presentación SAP</div>
+
+        <img
+          src="jaboncillo.jpg"
+          alt="Frutos de Sapindus saponaria"
+          style="
+            width:100%;
+            height:180px;
+            object-fit:cover;
+            border-radius:6px;
+            margin-bottom:0.8rem;
+          "
+        >
+
+        <div class="ing-card-name">
+          Sapindus saponaria
+        </div>
+
+        <div class="ing-card-desc">
+
+          El árbol del jabón —
+          sus frutos son el corazón
+          de cada presentación SAP
+
+        </div>
+
       </div>
+
+
       <div class="ing-card">
-        <span class="ing-emoji">🧴</span>
-        <div class="ing-card-name">Formato Líquido</div>
-        <div class="ing-card-desc">Listo para usar, espumoso y suave</div>
+
+        <span class="ing-emoji">
+          🧴
+        </span>
+
+        <div class="ing-card-name">
+          Formato Líquido
+        </div>
+
+        <div class="ing-card-desc">
+          Listo para usar, espumoso y suave
+        </div>
+
       </div>
+
+
       <div class="ing-card">
-        <span class="ing-emoji">🫙</span>
-        <div class="ing-card-name">Formato Polvo</div>
-        <div class="ing-card-desc">Concentrado, rinde más, menos residuo</div>
+
+        <span class="ing-emoji">
+          🫙
+        </span>
+
+        <div class="ing-card-name">
+          Formato Polvo
+        </div>
+
+        <div class="ing-card-desc">
+          Concentrado, rinde más, menos residuo
+        </div>
+
       </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<!-- TESTIMONIALS -->
+
+
+<!-- ======================================================
+     TESTIMONIOS
+     ====================================================== -->
+
 <section class="testimonials">
+
+
   <div class="section-header reveal">
-    <p class="section-eyebrow">Lo que dicen nuestros clientes</p>
-    <h2 class="section-title">Resultados que <em>hablan por sí solos</em></h2>
+
+    <p class="section-eyebrow">
+      Lo que dicen nuestros clientes
+    </p>
+
+    <h2 class="section-title">
+
+      Resultados que
+      <em>hablan por sí solos</em>
+
+    </h2>
+
   </div>
+
+
   <div class="testimonials-grid">
+
+
     <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">El jabón lava demasiado y ademas de eso dejo mi piel más suave. Lo recomiendo a todos mis conocidos.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">MG</div>
-        <div>
-          <div class="author-name">María G.</div>
-          <div class="author-loc">Ciudad de Cardenas</div>
-        </div>
+
+      <div class="stars">
+        ★★★★★
       </div>
+
+      <p class="testimonial-text">
+
+        El jabón lava demasiado y ademas
+        de eso dejo mi piel más suave.
+        Lo recomiendo a todos mis conocidos.
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          MG
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            María G.
+          </div>
+
+          <div class="author-loc">
+            Ciudad de Cardenas
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+
+
     <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Tengo piel muy sensible y siempre tuve problemas con los jabones convencionales. Jabón SAP es lo mejor que he probado, sin irritaciones.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">LR</div>
-        <div>
-          <div class="author-name">Laura R.</div>
-          <div class="author-loc">Agua Dulce</div>
-        </div>
+
+      <div class="stars">
+        ★★★★★
       </div>
+
+      <p class="testimonial-text">
+
+        Tengo piel muy sensible y siempre
+        tuve problemas con los jabones
+        convencionales. Jabón SAP es lo
+        mejor que he probado, sin irritaciones.
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          LR
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            Laura R.
+          </div>
+
+          <div class="author-loc">
+            Agua Dulce
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+
+
     <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Me sorprendio el hecho de que pudiera quitar manchas muy dificiles de manera segura, ademas genero mucha espuma, 10/10, lo volveria a comprar</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">CA</div>
-        <div>
-          <div class="author-name">Carlos A.</div>
-          <div class="author-loc">Huimanguillo</div>
-        </div>
+
+      <div class="stars">
+        ★★★★★
       </div>
+
+      <p class="testimonial-text">
+
+        Me sorprendio el hecho de que pudiera
+        quitar manchas muy dificiles de manera
+        segura, ademas genero mucha espuma,
+        10/10, lo volveria a comprar
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          CA
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            Carlos A.
+          </div>
+
+          <div class="author-loc">
+            Huimanguillo
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+
   </div>
+
 </section>
 
-<!-- CTA -->
+
+
+<!-- ======================================================
+     CTA
+     ====================================================== -->
+
 <section class="cta-section">
+
+
   <div class="cta-content reveal">
-    <p class="section-eyebrow">Empieza hoy</p>
-    <h2 class="cta-title">Dale a tu piel el<br>cuidado que merece</h2>
-    <p class="cta-desc">Envío a todo México. Compra 3 jabones y obtén un 15% de descuento en tu pedido.</p>
+
+    <p class="section-eyebrow">
+      Empieza hoy
+    </p>
+
+    <h2 class="cta-title">
+
+      Dale a tu piel el<br>
+      cuidado que merece
+
+    </h2>
+
+    <p class="cta-desc">
+
+      Envío a todo México.
+      Compra 3 jabones y obtén un
+      15% de descuento en tu pedido.
+
+    </p>
+
+
     <div class="cta-buttons">
-      <a href="#productos" class="btn-primary">Comprar ahora</a>
-      <a href="#nosotros" class="btn-ghost">Conocer más</a>
+
+      <a
+        href="#productos"
+        class="btn-primary"
+      >
+        Comprar ahora
+      </a>
+
+      <a
+        href="#nosotros"
+        class="btn-ghost"
+      >
+        Conocer más
+      </a>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- FOOTER -->
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
 <footer>
+
+
   <div class="footer-grid">
+
+
     <div class="footer-brand">
-      <div class="brand-name">Jabón SAP</div>
-      <p>Jabones orgánicos elaborados artesanalmente para el cuidado natural de tu piel. Sin químicos, con amor.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Productos</h4>
-      <ul>
-        <li><a href="#">Jabón en barra</a></li>
-        <li><a href="#">Jabón liquído</a></li>
-        <li><a href="#">Jabón en polvo</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Empresa</h4>
-      <ul>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Ingredientes</a></li>
-        <li><a href="#">Sustentabilidad</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Newsletter</h4>
-      <p style="font-size:0.78rem; color:rgba(245,240,232,0.55); margin-bottom:0.8rem; font-weight:300;">Recibe consejos de cuidado natural y ofertas exclusivas.</p>
-      <div class="newsletter-input">
-        <input type="email" placeholder="tu@correo.com">
-        <button>Suscribir</button>
+
+      <div class="brand-name">
+        Jabón SAP
       </div>
+
+      <p>
+
+        Jabones orgánicos elaborados
+        artesanalmente para el cuidado
+        natural de tu piel.
+        Sin químicos, con amor.
+
+      </p>
+
     </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Productos
+      </h4>
+
+      <ul>
+
+        <li>
+          <a href="#productos">
+            Jabón en barra
+          </a>
+        </li>
+
+        <li>
+          <a href="#productos">
+            Jabón liquído
+          </a>
+        </li>
+
+        <li>
+          <a href="#productos">
+            Jabón en polvo
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Empresa
+      </h4>
+
+      <ul>
+
+        <li>
+          <a href="#nosotros">
+            Nosotros
+          </a>
+        </li>
+
+        <li>
+          <a href="#ingredientes">
+            Ingredientes
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            Sustentabilidad
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            Contacto
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Newsletter
+      </h4>
+
+      <p
+        style="
+          font-size:0.78rem;
+          color:rgba(245,240,232,0.55);
+          margin-bottom:0.8rem;
+          font-weight:300;
+        "
+      >
+
+        Recibe consejos de cuidado natural
+        y ofertas exclusivas.
+
+      </p>
+
+
+      <div class="newsletter-input">
+
+        <input
+          type="email"
+          placeholder="tu@correo.com"
+        >
+
+        <button>
+          Suscribir
+        </button>
+
+      </div>
+
+    </div>
+
+
   </div>
+
+
+
   <div class="footer-bottom">
-    <p>© 2025 Jabón SAP. Todos los derechos reservados.</p>
+
+    <p>
+      © 2025 Jabón SAP.
+      Todos los derechos reservados.
+    </p>
+
+
     <div class="social-links">
-      <a class="social-link" href="#">ig</a>
-      <a class="social-link" href="#">fb</a>
-      <a class="social-link" href="#">tt</a>
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        ig
+      </a>
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        fb
+      </a>
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        tt
+      </a>
+
     </div>
+
   </div>
+
 </footer>
 
+
+
+<!-- ======================================================
+     JAVASCRIPT
+     ====================================================== -->
+
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Cart toast
-  function addToCart(btn) {
-    const toast = document.getElementById('toast');
-    toast.style.display = 'block';
-    btn.textContent = '✓';
-    btn.style.background = '#8fa455';
-    setTimeout(() => {
-      toast.style.display = 'none';
-      btn.textContent = '+';
-      btn.style.background = '';
-    }, 2500);
-  }
+/* ======================================================
+   SCROLL REVEAL
+   ====================================================== */
 
-  // Smooth nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    sections.forEach(section => {
-      const offset = section.offsetTop - 100;
-      const height = section.offsetHeight;
-      if (scrollY >= offset && scrollY < offset + height) {
-        document.querySelectorAll('.nav-links a').forEach(a => {
-          a.style.color = '';
-          if (a.getAttribute('href') === '#' + section.id) {
-            a.style.color = 'var(--verde-oscuro)';
+const observer =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach(
+        entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target
+              .classList
+              .add('visible');
+
           }
-        });
+
+        }
+      );
+
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(
+    el => observer.observe(el)
+  );
+
+
+
+/* ======================================================
+   CARRITO
+   ====================================================== */
+
+function addToCart(btn) {
+
+  const toast =
+    document.getElementById('toast');
+
+  toast.style.display = 'block';
+
+  btn.textContent = '✓';
+
+  btn.style.background =
+    '#8fa455';
+
+
+  setTimeout(
+    () => {
+
+      toast.style.display =
+        'none';
+
+      btn.textContent =
+        '+';
+
+      btn.style.background =
+        '';
+
+    },
+    2500
+  );
+
+}
+
+
+
+/* ======================================================
+   HIGHLIGHT DE NAVEGACIÓN
+   ====================================================== */
+
+const sections =
+  document.querySelectorAll(
+    'section[id]'
+  );
+
+
+window.addEventListener(
+  'scroll',
+  () => {
+
+    const scrollY =
+      window.scrollY;
+
+
+    sections.forEach(
+      section => {
+
+        const offset =
+          section.offsetTop - 100;
+
+        const height =
+          section.offsetHeight;
+
+
+        if (
+          scrollY >= offset &&
+          scrollY < offset + height
+        ) {
+
+          document
+            .querySelectorAll(
+              '.nav-links a'
+            )
+            .forEach(
+              a => {
+
+                a.style.color = '';
+
+
+                if (
+                  a.getAttribute('href') ===
+                  '#' + section.id
+                ) {
+
+                  a.style.color =
+                    'var(--verde-oscuro)';
+
+                }
+
+              }
+            );
+
+        }
+
       }
-    });
-  });
+    );
+
+  }
+);
+
+
 </script>
+
 </body>
 </html>
