@@ -2215,6 +2215,104 @@ footer {
 
 }
 
+  
+/* CARRITO Y CHECKOUT */
+.cart-section {
+  padding: 7rem clamp(1.25rem, 5vw, 5rem);
+  background: var(--blanco);
+  min-height: 60vh;
+  scroll-margin-top: 90px;
+}
+
+.cart-section[hidden] {
+  display: none !important;
+}
+
+.cart-section form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cart-section label {
+  font-size: 0.85rem;
+  color: var(--verde-oscuro);
+}
+
+.cart-section input,
+.cart-section select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--crema-oscuro);
+  border-radius: 3px;
+  background: var(--crema);
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.cart-row {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--crema-oscuro);
+}
+
+.cart-row h3 {
+  font-size: 1rem;
+  color: var(--verde-oscuro);
+}
+
+.cart-row p,
+.cart-summary p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.cart-row button {
+  padding: 0.45rem 0.75rem;
+  margin: 0.2rem;
+  border: 1px solid var(--verde-medio);
+  background: transparent;
+  color: var(--verde-oscuro);
+  cursor: pointer;
+}
+
+.cart-summary {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  background: var(--crema);
+}
+
+.cart-total {
+  font-size: 1.1rem !important;
+  color: var(--verde-oscuro);
+  margin: 1rem 0;
+}
+
+.cart-summary button,
+.cart-section form button {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .cart-section {
+    padding: 5rem 1rem;
+  }
+
+  .cart-row {
+    align-items: flex-start;
+  }
+}
+
 </style>
 </head>
 
@@ -2895,6 +2993,96 @@ footer {
 
 </section>
 
+
+<!-- CARRITO DE COMPRAS -->
+<section id="carrito" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Tu selección</p>
+    <h2 class="section-title">Carrito de <em>compras</em></h2>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-summary">
+    <p>Subtotal: <strong id="cart-subtotal">$0.00 MXN</strong></p>
+    <p>Envío: <strong>Por definir</strong></p>
+    <p class="cart-total">Total de productos:
+      <strong id="cart-total">$0.00 MXN</strong>
+    </p>
+
+    <button class="btn-primary" onclick="goToCheckout()">
+      Continuar con la compra
+    </button>
+    <button class="btn-ghost" onclick="closeCart()">
+      Seguir comprando
+    </button>
+  </div>
+</section>
+
+<!-- CHECKOUT -->
+<section id="checkout" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Último paso</p>
+    <h2 class="section-title">Datos de <em>entrega</em></h2>
+  </div>
+
+  <form id="checkout-form">
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" name="nombre" required autocomplete="name">
+
+    <label for="telefono">Teléfono</label>
+    <input id="telefono" name="telefono" type="tel"
+      required autocomplete="tel">
+
+    <label for="correo">Correo electrónico</label>
+    <input id="correo" name="correo" type="email"
+      required autocomplete="email">
+
+    <label for="direccion">Calle y número</label>
+    <input id="direccion" name="direccion" required
+      autocomplete="street-address">
+
+    <label for="colonia">Colonia</label>
+    <input id="colonia" name="colonia" required>
+
+    <label for="ciudad">Ciudad y estado</label>
+    <input id="ciudad" name="ciudad" required
+      autocomplete="address-level2">
+
+    <label for="cp">Código postal</label>
+    <input id="cp" name="cp" inputmode="numeric"
+      autocomplete="postal-code" required pattern="[0-9]{5}"
+      maxlength="5">
+
+    <label for="pago">Método de pago</label>
+    <select id="pago" name="pago" required>
+      <option value="">Selecciona una opción</option>
+      <option value="pendiente">Por definir</option>
+    </select>
+
+    <p id="checkout-total"></p>
+
+    <button class="btn-primary" type="submit">
+      Confirmar pedido
+    </button>
+    <button class="btn-ghost" type="button"
+      onclick="backToCart()">
+      Volver al carrito
+    </button>
+  </form>
+</section>
+
+<!-- CONFIRMACIÓN -->
+<section id="order-confirmation" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Pedido registrado</p>
+    <h2 class="section-title">¡Gracias por elegir <em>Jabón SAP!</em></h2>
+  </div>
+  <div id="confirmation-details"></div>
+  <button class="btn-primary" onclick="returnToProducts()">
+    Volver a los productos
+  </button>
+</section>
 
 
 <!-- ======================================================
