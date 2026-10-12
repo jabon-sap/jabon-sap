@@ -1,0 +1,4341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jabón SAP — Jabón Orgánico Natural</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --verde-oscuro: #4a5e2a;
+  --verde-medio: #6b7f3e;
+  --verde-claro: #8fa455;
+
+  --crema: #f5f0e8;
+  --crema-oscuro: #ede5d4;
+
+  --tierra: #c4a882;
+  --tierra-oscuro: #9e7d55;
+
+  --blanco: #fdfaf5;
+  --texto: #2d3a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 125px;
+}
+
+body {
+  background: var(--crema);
+  color: var(--texto);
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   TEXTURA DE FONDO
+   ========================================================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  min-height: 76px;
+
+  padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(253, 250, 245, 0.94);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(74, 94, 42, 0.10);
+
+  box-shadow: 0 1px 0 rgba(74, 94, 42, 0.05);
+}
+
+
+/* Logo real */
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  line-height: 0;
+}
+
+.nav-logo img {
+  width: clamp(135px, 11vw, 180px);
+
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* Links */
+
+.nav-links {
+  display: flex;
+
+  gap: clamp(1.2rem, 2.4vw, 2.5rem);
+
+  list-style: none;
+
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: var(--verde-medio);
+
+  font-size: 0.76rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  font-weight: 500;
+
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--verde-oscuro);
+}
+
+.nav-cta {
+  background: var(--verde-oscuro);
+
+  color: var(--crema) !important;
+
+  padding: 0.7rem 1.25rem;
+
+  border-radius: 2px;
+}
+
+.nav-cta:hover {
+  background: var(--verde-medio) !important;
+}
+
+.cart-nav-button {
+  border: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: 92vh;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding-top: 76px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(253,250,245,1) 0%,
+      rgba(253,250,245,0.98) 55%,
+      rgba(245,240,232,0.72) 100%
+    );
+}
+
+.hero::after {
+  content: '';
+
+  position: absolute;
+
+  right: -18%;
+  top: 3%;
+
+  width: 58vw;
+  height: 58vw;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(143,164,85,0.09) 0%,
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Texto */
+
+.hero-text {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    4.5rem
+    clamp(2rem, 5vw, 5rem);
+
+  max-width: 720px;
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: fadeUp 1s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.25rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+
+  display: block;
+
+  width: 40px;
+
+  height: 1px;
+
+  background: var(--tierra);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+
+  font-weight: 300;
+
+  line-height: 1.05;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.5rem;
+
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: italic;
+
+  color: var(--verde-medio);
+}
+
+.hero-desc {
+  font-size: 0.98rem;
+
+  line-height: 1.8;
+
+  color: #5a6b40;
+
+  max-width: 500px;
+
+  margin-bottom: 2.5rem;
+
+  font-weight: 300;
+}
+
+
+/* Botones */
+
+.hero-actions {
+  display: flex;
+
+  gap: 1.2rem;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  padding: 1rem 2.4rem;
+
+  border: none;
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  border-radius: 2px;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--verde-medio);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(74,94,42,0.25);
+}
+
+.btn-ghost {
+  background: transparent;
+
+  color: var(--verde-oscuro);
+
+  padding: 1rem 2rem;
+
+  border: 1.5px solid var(--verde-oscuro);
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  border-radius: 2px;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero-visual {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 620px;
+
+  z-index: 2;
+
+  animation: fadeIn 1.2s ease both 0.3s;
+}
+
+.soap-showcase {
+  position: relative;
+
+  width: min(560px, 92%);
+
+  height: 600px;
+}
+
+
+/* Círculos */
+
+.deco-ring {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 470px;
+  height: 470px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(74,94,42,0.10);
+}
+
+.deco-ring-2 {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 390px;
+  height: 390px;
+
+  border-radius: 50%;
+
+  border: 1px dashed rgba(74,94,42,0.07);
+}
+
+
+/* Logo principal */
+
+.hero-logo-svg {
+  position: absolute;
+
+  top: 43%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(500px, 94%);
+
+  z-index: 2;
+}
+
+.hero-logo-svg img {
+  width: 100% !important;
+
+  max-width: 500px;
+
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(
+      0 14px 24px rgba(45,58,26,0.10)
+    );
+}
+
+
+/* Barra de jabón */
+
+.soap-bar-main {
+  position: absolute;
+
+  bottom: 35px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 190px;
+  height: 78px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e8dfc8 0%,
+      #d4c9a8 40%,
+      #c8b98a 100%
+    );
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 16px 38px rgba(74,94,42,0.13),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.soap-label {
+  text-align: center;
+
+  color: var(--verde-oscuro);
+}
+
+.soap-label-brand {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  opacity: 0.7;
+
+  display: block;
+}
+
+.soap-label-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.4rem;
+
+  font-weight: 600;
+
+  display: block;
+}
+
+
+/* Badges */
+
+.float-badge {
+  position: absolute;
+
+  background: rgba(253,250,245,0.94);
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  border-radius: 8px;
+
+  padding: 0.6rem 1rem;
+
+  font-size: 0.7rem;
+
+  color: var(--verde-oscuro);
+
+  letter-spacing: 0.05em;
+
+  box-shadow:
+    0 8px 28px rgba(45,58,26,0.08);
+
+  animation: float 5s ease-in-out infinite;
+}
+
+.badge-1 {
+  top: 19%;
+  left: 2%;
+
+  animation-delay: -1s;
+}
+
+.badge-2 {
+  top: 38%;
+  right: 0;
+
+  animation-delay: -2.5s;
+}
+
+.badge-3 {
+  bottom: 15%;
+  right: 5%;
+
+  animation-delay: -0.8s;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+
+  display: block;
+
+  margin-bottom: 0.2rem;
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee-strip {
+  background: var(--verde-oscuro);
+
+  padding: 1rem 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: inline-flex;
+
+  gap: 3rem;
+
+  animation:
+    marquee 20s linear infinite;
+}
+
+.marquee-item {
+  font-size: 0.7rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: rgba(245,240,232,0.7);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.marquee-item span {
+  color: var(--tierra);
+}
+
+
+/* =========================================================
+   NUESTRA HISTORIA
+   ========================================================= */
+
+.about {
+  display: grid;
+
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: clamp(3rem, 6vw, 7rem);
+
+  align-items: center;
+
+  padding:
+    clamp(5rem, 9vw, 9rem)
+    clamp(1.5rem, 7vw, 8rem);
+
+  background: var(--blanco);
+}
+
+
+/* Imagen */
+
+.about-visual {
+  position: relative;
+
+  width: 100%;
+}
+
+.about-image {
+  width: 100%;
+
+  max-width: 560px;
+
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+
+  height: 480px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 18px 45px rgba(45,58,26,0.10);
+}
+
+
+/* Esta parte conserva el visual original si no quieres
+   utilizar todavía la fotografía */
+
+.about-img-bg {
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  background:
+    linear-gradient(
+      160deg,
+      #d4e2b4 0%,
+      #b8cc8a 30%,
+      #8fa455 60%,
+      #6b7f3e 100%
+    );
+
+  border-radius: 4px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/*
+   IMAGEN DE NUESTRA HISTORIA
+
+   Para utilizar una fotografía real:
+   1. Sube historia-jabon-sap.jpg a GitHub.
+   2. Cambia el contenido de .about-visual por .about-image.
+*/
+
+.about-photo {
+  width: 100%;
+
+  height: 480px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 18px 45px rgba(45,58,26,0.10);
+}
+
+
+/* Etiqueta */
+
+.about-tag {
+  position: absolute;
+
+  top: -20px;
+  right: -20px;
+
+  width: 100px;
+  height: 100px;
+
+  background: var(--crema-oscuro);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(74,94,42,0.2);
+}
+
+.about-tag-num {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2rem;
+
+  font-weight: 600;
+
+  color: var(--verde-oscuro);
+
+  line-height: 1;
+}
+
+.about-tag-txt {
+  font-size: 0.55rem;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: var(--verde-medio);
+}
+
+
+/* Texto */
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.about-text .section-eyebrow::before {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.5rem;
+}
+
+.section-title em {
+  font-style: italic;
+
+  color: var(--verde-medio);
+}
+
+.section-body {
+  font-size: 0.95rem;
+
+  line-height: 1.9;
+
+  color: #5a6b40;
+
+  font-weight: 300;
+
+  margin-bottom: 2rem;
+}
+
+
+/* Pilares */
+
+.pillars {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.pillar {
+  display: flex;
+
+  gap: 0.8rem;
+
+  align-items: flex-start;
+}
+
+.pillar-icon {
+  width: 32px;
+  height: 32px;
+
+  background: rgba(74,94,42,0.08);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.9rem;
+
+  flex-shrink: 0;
+
+  margin-top: 2px;
+}
+
+.pillar-text strong {
+  display: block;
+
+  font-size: 0.8rem;
+
+  font-weight: 500;
+
+  color: var(--verde-oscuro);
+
+  letter-spacing: 0.05em;
+
+  margin-bottom: 0.2rem;
+}
+
+.pillar-text span {
+  font-size: 0.75rem;
+
+  color: #7a8f5a;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PRODUCTOS
+   ========================================================= */
+
+.products-section {
+  padding: 7rem 5rem;
+
+  background: var(--crema);
+}
+
+.section-header {
+  text-align: center;
+
+  margin-bottom: 4rem;
+}
+
+.section-header .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1rem;
+
+  justify-content: center;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.section-header .section-eyebrow::before,
+.section-header .section-eyebrow::after {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1.4rem;
+}
+
+.product-card {
+  background: var(--blanco);
+
+  border-radius: 3px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s,
+    box-shadow 0.4s;
+
+  cursor: pointer;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  box-shadow:
+    0 8px 28px rgba(45,58,26,0.04);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 40px rgba(45,58,26,0.09);
+}
+
+.product-img {
+  height: 275px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.product-soap-visual {
+  width: 130px;
+
+  height: 65px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.7rem;
+
+  color: rgba(255,255,255,0.8);
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  position: relative;
+
+  transition: transform 0.4s;
+}
+
+.product-card:hover .product-soap-visual {
+  transform:
+    translateY(-5px)
+    rotate(-3deg);
+}
+
+
+/* Fondos */
+
+.soap-lavanda-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #ede9f8 0%,
+      #d8d3f0 100%
+    );
+}
+
+.soap-menta-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #e8f8ec 0%,
+      #c5e8ce 100%
+    );
+}
+
+.soap-miel-bg {
+  background:
+    linear-gradient(
+      180deg,
+      #fdf5e4 0%,
+      #f2dfa8 100%
+    );
+}
+
+.soap-miel {
+  background:
+    linear-gradient(
+      135deg,
+      #f0d5a0 0%,
+      #d4a84b 100%
+    );
+}
+
+
+/* Badge */
+
+.product-badge-new {
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  padding: 0.3rem 0.7rem;
+
+  border-radius: 2px;
+}
+
+
+/* Información */
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.4rem;
+
+  font-weight: 500;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 0.4rem;
+}
+
+.product-desc {
+  font-size: 0.78rem;
+
+  color: #7a8f5a;
+
+  line-height: 1.6;
+
+  margin-bottom: 1.2rem;
+
+  font-weight: 300;
+}
+
+.product-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.6rem;
+
+  color: var(--verde-oscuro);
+
+  font-weight: 600;
+}
+
+.product-price small {
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.7rem;
+
+  color: var(--verde-medio);
+
+  font-weight: 400;
+}
+
+.add-btn {
+  width: 36px;
+  height: 36px;
+
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: all 0.3s;
+}
+
+.add-btn:hover {
+  background: var(--verde-medio);
+
+  transform: scale(1.1);
+}
+
+.stars {
+  color: #c4a535;
+
+  font-size: 0.75rem;
+
+  margin-bottom: 0.8rem;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   INGREDIENTES
+   ========================================================= */
+
+.ingredients-section {
+  background: var(--verde-oscuro);
+
+  padding: 7rem 5rem;
+
+  color: var(--crema);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.ingredients-section::before {
+  content: '';
+
+  position: absolute;
+
+  right: -5%;
+  top: -20%;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(143,164,85,0.08);
+
+  pointer-events: none;
+}
+
+.ingredients-section::after {
+  content: '';
+
+  position: absolute;
+
+  left: -10%;
+  bottom: -20%;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  background: rgba(143,164,85,0.05);
+
+  pointer-events: none;
+}
+
+.ingredients-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 5rem;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+.ingredients-text .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra);
+
+  margin-bottom: 1.2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.ingredients-text .section-eyebrow::before {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.ingredients-text .section-title {
+  color: var(--crema);
+}
+
+.ingredients-text .section-body {
+  color: rgba(245,240,232,0.7);
+}
+
+.ingredients-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.2rem;
+
+  margin-top: 1.5rem;
+}
+
+.ingredient-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1.2rem;
+
+  border-bottom:
+    1px solid rgba(245,240,232,0.1);
+}
+
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+
+.ingredient-num {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 0.75rem;
+
+  color: var(--tierra);
+
+  width: 24px;
+
+  flex-shrink: 0;
+}
+
+.ingredient-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  font-weight: 500;
+
+  color: var(--crema);
+
+  flex: 1;
+}
+
+.ingredient-benefit {
+  font-size: 0.72rem;
+
+  color: rgba(245,240,232,0.55);
+
+  text-align: right;
+
+  font-weight: 300;
+}
+
+
+/* Visual */
+
+.ingredients-visual {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1rem;
+}
+
+.ing-card {
+  background: rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 8px;
+
+  padding: 1.5rem;
+
+  text-align: center;
+
+  transition: background 0.3s;
+}
+
+.ing-card:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.ing-card:nth-child(1) {
+  grid-column: 1 / -1;
+}
+
+.ing-emoji {
+  font-size: 2.5rem;
+
+  margin-bottom: 0.8rem;
+
+  display: block;
+}
+
+.ing-card-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  color: var(--crema);
+
+  margin-bottom: 0.3rem;
+}
+
+.ing-card-desc {
+  font-size: 0.7rem;
+
+  color: rgba(245,240,232,0.5);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TESTIMONIOS
+   ========================================================= */
+
+.testimonials {
+  padding: 7rem 5rem;
+
+  background: var(--crema-oscuro);
+}
+
+.testimonials-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 2rem;
+
+  margin-top: 4rem;
+}
+
+.testimonial-card {
+  background: var(--blanco);
+
+  padding: 2rem;
+
+  border-radius: 4px;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+
+  position: absolute;
+
+  top: -10px;
+  left: 20px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5rem;
+
+  color: var(--verde-claro);
+
+  opacity: 0.3;
+
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 0.88rem;
+
+  line-height: 1.8;
+
+  color: #5a6b40;
+
+  font-weight: 300;
+
+  margin-bottom: 1.5rem;
+
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: var(--verde-claro);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.85rem;
+
+  color: white;
+
+  font-weight: 500;
+}
+
+.author-name {
+  font-weight: 500;
+
+  font-size: 0.82rem;
+
+  color: var(--verde-oscuro);
+}
+
+.author-loc {
+  font-size: 0.7rem;
+
+  color: #9aae72;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta-section {
+  padding: 7rem 5rem;
+
+  background: var(--blanco);
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(74,94,42,0.06);
+}
+
+.cta-section::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(74,94,42,0.08);
+}
+
+.cta-content {
+  position: relative;
+
+  z-index: 1;
+}
+
+.cta-section .section-eyebrow {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra-oscuro);
+
+  margin-bottom: 1.5rem;
+
+  justify-content: center;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.cta-section .section-eyebrow::before,
+.cta-section .section-eyebrow::after {
+  content: '';
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--tierra);
+
+  display: block;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  font-weight: 300;
+
+  color: var(--verde-oscuro);
+
+  margin-bottom: 1.2rem;
+
+  line-height: 1.1;
+}
+
+.cta-desc {
+  font-size: 0.95rem;
+
+  color: #7a8f5a;
+
+  max-width: 480px;
+
+  margin:
+    0 auto 2.5rem;
+
+  line-height: 1.8;
+
+  font-weight: 300;
+}
+
+.cta-buttons {
+  display: flex;
+
+  gap: 1rem;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background: var(--verde-oscuro);
+
+  color: var(--crema);
+
+  padding: 4rem 5rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr 1.5fr;
+
+  gap: 3rem;
+
+  margin-bottom: 3rem;
+
+  padding-bottom: 3rem;
+
+  border-bottom:
+    1px solid rgba(245,240,232,0.1);
+}
+
+.footer-brand .brand-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.8rem;
+
+  font-weight: 300;
+
+  color: var(--crema);
+
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+
+  color: rgba(245,240,232,0.55);
+
+  line-height: 1.8;
+
+  font-weight: 300;
+
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--tierra);
+
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-col ul a {
+  text-decoration: none;
+
+  color: rgba(245,240,232,0.6);
+
+  font-size: 0.82rem;
+
+  font-weight: 300;
+
+  transition: color 0.3s;
+}
+
+.footer-col ul a:hover {
+  color: var(--crema);
+}
+
+.newsletter-input {
+  display: flex;
+
+  gap: 0;
+
+  margin-top: 0.5rem;
+}
+
+.newsletter-input input {
+  flex: 1;
+
+  padding: 0.7rem 1rem;
+
+  background: rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  border-right: none;
+
+  color: var(--crema);
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.8rem;
+
+  outline: none;
+
+  border-radius: 2px 0 0 2px;
+}
+
+.newsletter-input input::placeholder {
+  color: rgba(245,240,232,0.35);
+}
+
+.newsletter-input button {
+  padding: 0.7rem 1.2rem;
+
+  background: var(--tierra);
+
+  border: none;
+
+  color: var(--blanco);
+
+  cursor: pointer;
+
+  font-family: 'Jost', sans-serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  border-radius: 0 2px 2px 0;
+
+  transition: background 0.3s;
+}
+
+.newsletter-input button:hover {
+  background: var(--tierra-oscuro);
+}
+
+.footer-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 0.72rem;
+
+  color: rgba(245,240,232,0.35);
+}
+
+.social-links {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.social-link {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 0.75rem;
+
+  color: rgba(245,240,232,0.6);
+
+  text-decoration: none;
+
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  border-color: var(--tierra);
+
+  color: var(--tierra);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes float {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+}
+
+@keyframes marquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* Scroll reveal */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  nav {
+    min-height: 68px;
+
+    padding:
+      0.7rem 1.25rem;
+  }
+
+  .nav-logo img {
+    width: 145px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .cart-nav-button {
+    display: block;
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.65rem 0.8rem;
+    font-size: 0.68rem;
+  }
+
+  .hero {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    padding-top: 68px;
+  }
+
+  .hero-text {
+    padding:
+      4rem 1.5rem 2rem;
+  }
+
+  .hero-visual {
+    display: flex;
+
+    min-height: 500px;
+
+    padding:
+      0 1rem 2rem;
+  }
+
+  .soap-showcase {
+    width: 100%;
+
+    max-width: 470px;
+
+    height: 500px;
+  }
+
+  .hero-logo-svg {
+    width: min(430px, 92%);
+  }
+
+  .deco-ring {
+    width: 350px;
+    height: 350px;
+  }
+
+  .deco-ring-2 {
+    width: 290px;
+    height: 290px;
+  }
+
+  .float-badge {
+    transform: scale(0.88);
+  }
+
+  .badge-1 {
+    left: -1%;
+  }
+
+  .badge-2 {
+    right: -2%;
+  }
+
+  .badge-3 {
+    right: 0;
+  }
+
+
+  /* Historia */
+
+  .about {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .about-visual {
+    order: 1;
+  }
+
+  .about-text {
+    order: 2;
+  }
+
+  .about-image img,
+  .about-photo {
+    height: 380px;
+  }
+
+
+  /* Productos */
+
+  .products-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Ingredientes */
+
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Footer */
+
+  .footer-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .products-section,
+  .ingredients-section,
+  .testimonials,
+  .cta-section {
+    padding:
+      4rem 2rem;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .nav-logo img {
+    width: 130px;
+  }
+
+  .hero-text {
+    padding-top: 3rem;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .soap-showcase {
+    height: 430px;
+  }
+
+  .hero-logo-svg {
+    width: 92%;
+  }
+
+  .deco-ring {
+    width: 290px;
+    height: 290px;
+  }
+
+  .deco-ring-2 {
+    width: 235px;
+    height: 235px;
+  }
+
+  .soap-bar-main {
+    bottom: 20px;
+
+    width: 165px;
+
+    height: 68px;
+  }
+
+  .float-badge {
+    display: none;
+  }
+
+  .about {
+    padding:
+      4rem 1.25rem;
+  }
+
+  .about-image img,
+  .about-photo {
+    height: 300px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredients-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    align-items: flex-start;
+  }
+
+}
+
+  
+/* CARRITO Y CHECKOUT */
+.cart-section {
+  padding: 7rem clamp(1.25rem, 5vw, 5rem);
+  background: var(--blanco);
+  min-height: 60vh;
+  scroll-margin-top: 90px;
+}
+
+.cart-section[hidden] {
+  display: none !important;
+}
+
+.cart-section form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cart-section label {
+  font-size: 0.85rem;
+  color: var(--verde-oscuro);
+}
+
+.cart-section input,
+.cart-section select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--crema-oscuro);
+  border-radius: 3px;
+  background: var(--crema);
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.cart-row {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--crema-oscuro);
+}
+
+.cart-row h3 {
+  font-size: 1rem;
+  color: var(--verde-oscuro);
+}
+
+.cart-row p,
+.cart-summary p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.cart-row button {
+  padding: 0.45rem 0.75rem;
+  margin: 0.2rem;
+  border: 1px solid var(--verde-medio);
+  background: transparent;
+  color: var(--verde-oscuro);
+  cursor: pointer;
+}
+
+.cart-summary {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  background: var(--crema);
+}
+
+.cart-total {
+  font-size: 1.1rem !important;
+  color: var(--verde-oscuro);
+  margin: 1rem 0;
+}
+
+.cart-summary button,
+.cart-section form button {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+#cart-items:empty::before {
+  content: "Tu carrito está vacío. Agrega alguno de nuestros productos para continuar.";
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: #7a8f5a;
+  line-height: 1.7;
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 180px;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cart-row button {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 2px;
+}
+
+.cart-summary button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#confirmation-details {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  background: var(--crema);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+#confirmation-details h3 {
+  color: var(--verde-oscuro);
+  margin-bottom: 0.75rem;
+}
+
+#confirmation-details p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.cart-notice {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--crema);
+  border-left: 3px solid var(--verde-medio);
+  color: var(--verde-oscuro);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .cart-section {
+    padding: 5rem 1rem;
+  }
+
+  .cart-row {
+    align-items: flex-start;
+  }
+
+  .cart-item-controls {
+    width: 100%;
+  }
+
+  .cart-summary {
+    padding: 1rem;
+  }
+}
+
+
+
+/* =========================================================
+   TIENDA COMERCIAL + BANNERS + BUSCADOR
+   ========================================================= */
+:root { --sap-accent: #6b7f3e; --sap-orange: #b16b2d; }
+body { font-size: 17px; }
+.sap-promo-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 102;
+  min-height: 36px; display:flex; align-items:center; justify-content:center;
+  padding: 7px 16px; text-align:center; color:#fffdf7; background:var(--verde-oscuro);
+  font-size:12px; letter-spacing:.04em;
+}
+nav { top:36px; }
+.hero { padding-top:112px; }
+.sap-store-tools { display:flex; gap:10px; align-items:center; margin-left:auto; }
+.sap-search-wrap { display:flex; align-items:center; gap:8px; border:1px solid #ded8ca; background:#fff; border-radius:7px; padding:9px 12px; width:min(270px, 28vw); }
+.sap-search-wrap input { border:0; outline:0; width:100%; background:transparent; color:var(--texto); font:inherit; font-size:14px; }
+.sap-search-wrap:focus-within { border-color:var(--verde-medio); box-shadow:0 0 0 3px #6b7f3e20; }
+.sap-banner-section { padding:26px clamp(16px,4vw,58px) 34px; background:#fdfaf5; }
+.sap-carousel { position:relative; overflow:hidden; min-height:270px; border-radius:12px; background:#e8eadc; }
+.sap-slide { display:none; min-height:270px; align-items:center; justify-content:space-between; gap:25px; padding:clamp(25px,5vw,58px); background:linear-gradient(100deg,#e8eadc 0%,#f5f0e8 62%,#e4e8d8 100%); }
+.sap-slide.is-active { display:flex; animation:sapFade .45s ease; }
+.sap-slide-copy { max-width:690px; }
+.sap-slide-kicker { color:var(--verde-medio); font-size:12px; text-transform:uppercase; letter-spacing:.15em; font-weight:600; margin-bottom:12px; }
+.sap-slide h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4vw,48px); line-height:1.04; font-weight:500; margin-bottom:12px; }
+.sap-slide p { max-width:650px; line-height:1.6; font-size:15px; margin-bottom:19px; }
+.sap-slide a { display:inline-block; padding:12px 20px; background:var(--verde-oscuro); color:white; border-radius:4px; text-decoration:none; font-size:13px; font-weight:600; }
+.sap-slide a:hover { background:var(--verde-medio); }
+.sap-slide-art { flex:0 0 27%; min-height:150px; display:flex; align-items:center; justify-content:center; color:var(--verde-oscuro); }
+.sap-slide-art img { max-width:100%; max-height:220px; object-fit:contain; mix-blend-mode:multiply; border-radius:8px; }
+.sap-carousel-controls { position:absolute; right:18px; bottom:16px; display:flex; gap:8px; align-items:center; }
+.sap-carousel-controls button { width:34px; height:34px; border:1px solid #78875a; background:#fffdf5; color:var(--verde-oscuro); border-radius:50%; cursor:pointer; font-size:18px; }
+.sap-dots { display:flex; gap:6px; margin:0 4px; }
+.sap-dots button { width:7px; height:7px; padding:0; border:0; border-radius:50%; background:#a8b095; cursor:pointer; }
+.sap-dots button[aria-current="true"] { background:var(--verde-oscuro); width:20px; border-radius:10px; }
+.sap-benefit-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:22px clamp(16px,4vw,58px); background:#fff; border-top:1px solid #eee8dc; border-bottom:1px solid #eee8dc; }
+.sap-benefit { display:flex; align-items:center; gap:12px; padding:8px 12px; }
+.sap-benefit strong { display:block; font-size:14px; }
+.sap-benefit span { display:block; color:#6b6c61; font-size:12px; margin-top:3px; }
+.sap-benefit-mark { flex:0 0 36px; height:36px; border-radius:50%; display:grid; place-items:center; background:#eef0e5; color:var(--verde-oscuro); font-size:18px; }
+.products-section { background:#f8f6f0; }
+.products-grid { gap:18px; }
+.product-card { background:#fff; border:1px solid #e8e3d8; border-radius:9px; overflow:hidden; box-shadow:0 3px 12px #453d2810; transition:transform .2s,box-shadow .2s; }
+.product-card:hover { transform:translateY(-3px); box-shadow:0 9px 24px #453d2818; }
+.product-info { padding:20px; }
+.product-price { color:var(--verde-oscuro); font-weight:600; }
+.add-btn { border-radius:4px; }
+.sap-science { padding:76px clamp(20px,7vw,100px); background:#fff; }
+.sap-science-head { max-width:760px; margin:0 auto 32px; text-align:center; }
+.sap-science-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.sap-science-card { border:1px solid #e5e2d8; background:#fdfbf7; padding:25px; border-radius:8px; }
+.sap-science-card .sap-number { color:var(--verde-medio); font-size:12px; font-weight:700; letter-spacing:.12em; }
+.sap-science-card h3 { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; margin:12px 0; }
+.sap-science-card p { font-size:14px; line-height:1.65; color:#55594c; }
+.sap-science-card a { display:inline-block; margin-top:15px; color:var(--verde-oscuro); font-size:13px; font-weight:600; }
+.sap-science-note { max-width:900px; margin:22px auto 0; color:#6b6c61; font-size:12px; line-height:1.6; text-align:center; }
+.product-card.sap-no-match { display:none !important; }
+@keyframes sapFade { from { opacity:.55; } to { opacity:1; } }
+@media(max-width:900px) {
+ nav { top:36px; }
+ .hero { padding-top:104px; }
+ .sap-store-tools { position:absolute; left:16px; right:16px; top:calc(100% + 8px); width:auto; }
+ .sap-search-wrap { width:100%; }
+ .sap-banner-section { padding-top:58px; }
+ .sap-slide { align-items:flex-start; }
+ .sap-slide-art { flex-basis:22%; }
+ .sap-benefit-strip { grid-template-columns:1fr; gap:4px; }
+ .sap-benefit { padding:7px 0; }
+ .sap-science-grid { grid-template-columns:1fr; }
+}
+@media(max-width:520px) {
+ .sap-promo-bar { font-size:10px; min-height:34px; }
+ nav { top:34px; }
+ .hero { padding-top:96px; }
+ .sap-slide { padding:25px 20px 62px; min-height:310px; }
+ .sap-slide.is-active { display:block; }
+ .sap-slide-art { display:none; }
+ .sap-slide h2 { font-size:34px; }
+ .sap-slide p { font-size:14px; }
+ .sap-carousel-controls { right:12px; bottom:12px; }
+ .sap-science { padding:52px 20px; }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="sap-promo-bar">Jabón SAP · Limpieza de origen vegetal · Conoce la ciencia de la saponaria</div>
+
+<!-- ======================================================
+     NAVEGACIÓN
+     ====================================================== -->
+
+<nav>
+
+  <a href="#" class="nav-logo" aria-label="Jabón SAP">
+    <img
+      src="LOGO_SAP2.png"
+      alt="Jabón SAP"
+    >
+  </a>
+
+  <div class="sap-store-tools">
+    <label class="sap-search-wrap" aria-label="Buscar productos">⌕ <input id="sap-product-search" type="search" placeholder="¿Qué estás buscando?" autocomplete="off"></label>
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="#nosotros">
+        Nosotros
+      </a>
+    </li>
+
+    <li>
+      <a href="#productos">
+        Productos
+      </a>
+    </li>
+
+    <li>
+      <a href="#ingredientes">
+        Ingredientes
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#productos"
+        class="nav-cta"
+      >
+        Comprar ahora
+      </a>
+    </li>
+    <li>
+      <button type="button" class="nav-cta cart-nav-button" onclick="openCart()" aria-label="Abrir carrito">
+        Carrito (<span id="cart-count">0</span>)
+      </button>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
+<section class="hero">
+
+
+  <div class="hero-text">
+
+    <p class="hero-eyebrow">
+      El poder de la saponaria natural
+    </p>
+
+    <h1 class="hero-title">
+
+      Limpieza pura<br>
+
+      con <em>Saponaria</em><br>
+
+      100% natural
+
+    </h1>
+
+    <p class="hero-desc">
+
+      Jabón SAP está elaborado a base de saponaria
+      (Sapindus saponaria), una planta con saponinas
+      naturales que limpian profundamente sin dañar
+      tu piel ni el medio ambiente.
+
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        href="#productos"
+        class="btn-primary"
+      >
+        Ver productos
+      </a>
+
+      <a
+        href="#nosotros"
+        class="btn-ghost"
+      >
+        Nuestra historia
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="hero-visual">
+
+    <div class="soap-showcase">
+
+
+      <div class="deco-ring"></div>
+
+      <div class="deco-ring-2"></div>
+
+
+      <!-- LOGO PRINCIPAL -->
+
+      <div class="hero-logo-svg">
+
+        <img
+          src="LOGO_SAP2.png"
+          alt="Logo Jabón SAP"
+        >
+
+      </div>
+
+
+      <!-- BARRA DE JABÓN -->
+
+      <div class="soap-bar-main">
+
+        <div class="soap-label">
+
+          <span class="soap-label-brand">
+            Jabón
+          </span>
+
+          <span class="soap-label-name">
+            SAP
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- BADGES -->
+
+      <div class="float-badge badge-1">
+
+        <span class="badge-icon">
+          🌿
+        </span>
+
+        100% Orgánico
+
+      </div>
+
+
+      <div class="float-badge badge-2">
+
+        <span class="badge-icon">
+          🐰
+        </span>
+
+        Cruelty Free
+
+      </div>
+
+
+      <div class="float-badge badge-3">
+
+        <span class="badge-icon">
+          ✨
+        </span>
+
+        Sin parabenos
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- BANNERS ROTATIVOS: información científica y catálogo -->
+<section class="sap-banner-section" aria-label="Novedades y beneficios de Jabón SAP">
+  <div class="sap-carousel" id="sap-carousel" aria-roledescription="carrusel">
+    <article class="sap-slide is-active" aria-hidden="false">
+      <div class="sap-slide-copy">
+        <p class="sap-slide-kicker">La ciencia de la limpieza vegetal</p>
+        <h2>El poder limpiador de las saponinas</h2>
+        <p>Las saponinas son compuestos vegetales con actividad tensioactiva. Un estudio de 2026 evaluó extracto de <em>Sapindus saponaria</em> en una formulación de jabón líquido y midió propiedades de espuma y detergencia.</p>
+        <a href="#ciencia-saponaria">Conoce la investigación</a>
+      </div>
+      <div class="sap-slide-art"><img src="Nuestra_historia.jpg" alt="Saponaria y origen vegetal"></div>
+    </article>
+    <article class="sap-slide" aria-hidden="true">
+      <div class="sap-slide-copy">
+        <p class="sap-slide-kicker">Tres presentaciones</p>
+        <h2>Encuentra tu forma de limpiar</h2>
+        <p>Explora Jabón SAP líquido, en polvo y en barra. Elige la presentación que se adapte a tu rutina y agrega tus productos al carrito.</p>
+        <a href="#productos">Explorar productos</a>
+      </div>
+      <div class="sap-slide-art"><img src="Jabon_liquido.jpg" alt="Jabón SAP líquido"></div>
+    </article>
+    <article class="sap-slide" aria-hidden="true">
+      <div class="sap-slide-copy">
+        <p class="sap-slide-kicker">Conoce nuestros ingredientes</p>
+        <h2>Origen vegetal, información transparente</h2>
+        <p>Descubre qué se conoce sobre la saponaria y consulta las fuentes científicas. Los resultados de laboratorio dependen de la formulación evaluada y no sustituyen pruebas específicas de cada producto.</p>
+        <a href="#ingredientes">Ver ingredientes</a>
+      </div>
+      <div class="sap-slide-art"><img src="Jabon_barra.jpg" alt="Jabón SAP en barra"></div>
+    </article>
+    <div class="sap-carousel-controls">
+      <button type="button" id="sap-prev" aria-label="Banner anterior">‹</button>
+      <div class="sap-dots" id="sap-dots" aria-label="Elegir banner"></div>
+      <button type="button" id="sap-next" aria-label="Banner siguiente">›</button>
+    </div>
+  </div>
+</section>
+<div class="sap-benefit-strip" aria-label="Información de la tienda">
+  <div class="sap-benefit"><div class="sap-benefit-mark">✦</div><div><strong>Tres presentaciones</strong><span>Líquido, polvo y barra</span></div></div>
+  <div class="sap-benefit"><div class="sap-benefit-mark">⌕</div><div><strong>Compra sencilla</strong><span>Busca, agrega y revisa tu carrito</span></div></div>
+  <div class="sap-benefit"><div class="sap-benefit-mark">❧</div><div><strong>Información respaldada</strong><span>Referencias científicas consultables</span></div></div>
+</div>
+
+<!-- ======================================================
+     MARQUEE
+     ====================================================== -->
+
+<div class="marquee-strip">
+
+  <div class="marquee-inner">
+
+    <span class="marquee-item">
+      100% Saponaria natural
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón líquido
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en polvo
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en barra
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Sin químicos agresivos
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Cruelty Free
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      100% Saponaria natural
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón líquido
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en polvo
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Jabón en barra
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Sin químicos agresivos
+      <span>✦</span>
+    </span>
+
+    <span class="marquee-item">
+      Cruelty Free
+      <span>✦</span>
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     NUESTRA HISTORIA
+     ====================================================== -->
+
+<section
+  class="about"
+  id="nosotros"
+>
+
+
+  <!-- IMAGEN DE NUESTRA HISTORIA -->
+
+  <div class="about-visual reveal">
+
+    <div class="about-image">
+
+      <img
+        src="Nuestra_historia.jpg"
+        class="about-photo"
+      >
+
+    </div>
+
+
+    <div class="about-tag">
+
+      <span class="about-tag-num">
+        100
+      </span>
+
+      <span class="about-tag-txt">
+        % Natural
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- TEXTO ORIGINAL -->
+
+  <div class="about-text reveal">
+
+    <p class="section-eyebrow">
+      Nuestra historia
+    </p>
+
+    <h2 class="section-title">
+
+      El secreto está en la
+      <em>Saponaria</em>
+
+    </h2>
+
+
+    <p class="section-body">
+
+      Jabón SAP está formulado a base de
+      <strong>Sapindus saponaria</strong>,
+      conocida como "árbol del jabón".
+      Sus frutos contienen saponinas naturales,
+      surfactantes vegetales que limpian
+      profundamente sin irritar la piel ni
+      contaminar el agua.
+
+    </p>
+
+
+    <p class="section-body">
+
+      Sin parabenos, sin sulfatos, sin colorantes
+      artificiales. Solo el poder limpiador que
+      la naturaleza ya nos da, en tres
+      presentaciones para adaptarse a tu estilo
+      de vida.
+
+    </p>
+
+
+    <div class="pillars">
+
+
+      <div class="pillar">
+
+        <div class="pillar-icon">
+          🌿
+        </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Saponaria pura
+          </strong>
+
+          <span>
+            Ingrediente único y 100% natural
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="pillar">
+
+        <div class="pillar-icon">
+          💧
+        </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            3 presentaciones
+          </strong>
+
+          <span>
+            Líquido, polvo y en barra
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="pillar">
+
+        <div class="pillar-icon">
+          🌍
+        </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Eco-friendly
+          </strong>
+
+          <span>
+            Biodegradable, cuida ríos y suelos
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="pillar">
+
+        <div class="pillar-icon">
+          💚
+        </div>
+
+        <div class="pillar-text">
+
+          <strong>
+            Sin crueldad
+          </strong>
+
+          <span>
+            Nunca probado en animales
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     PRODUCTOS
+     ====================================================== -->
+
+<section
+  class="products-section"
+  id="productos"
+>
+
+
+  <div class="section-header reveal">
+
+    <p class="section-eyebrow">
+      Nuestra colección
+    </p>
+
+    <h2 class="section-title">
+
+      Encuentra tu
+      <em>jabón ideal</em>
+
+    </h2>
+
+  </div>
+
+
+
+  <div class="products-grid">
+
+
+    <!-- PRODUCTO 1 -->
+
+    <div class="product-card reveal">
+
+      <div class="product-img soap-menta-bg">
+
+        <img
+          src="Jabon_liquido.jpg"
+          class="about-photo"
+        >
+
+        <span class="product-badge-new">
+          Más vendido
+        </span>
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <h3 class="product-name">
+          SAP Líquido
+        </h3>
+
+        <p class="product-desc">
+
+          Jabón líquido de saponaria pura.
+          Ideal para manos, cuerpo y uso diario.
+          Suave, espumoso y biodegradable.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $65
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCTO 2 -->
+
+    <div class="product-card reveal">
+
+      <div
+        class="product-img soap-menta-bg"
+      >
+
+        <img
+          src="Jabon_polvo.jpg"
+          class="about-photo"
+        >
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <h3 class="product-name">
+          SAP en Polvo
+        </h3>
+
+        <p class="product-desc">
+
+          Saponaria molida al natural.
+          Perfecta para lavar ropa, trastes y
+          superficies. Rinde hasta 3 veces más.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $65
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCTO 3 -->
+
+    <div class="product-card reveal">
+
+      <div
+        class="product-img soap-miel-bg"
+      >
+
+        <img
+          src="Jabon_barra.jpg"
+          class="about-photo"
+        >
+
+        <span class="product-badge-new">
+          Nuevo
+        </span>
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <h3 class="product-name">
+          SAP en Barra
+        </h3>
+
+        <p class="product-desc">
+
+          Barra artesanal de saponaria compacta.
+          Larga duración, cero desperdicio,
+          ideal para llevar a todas partes.
+
+        </p>
+
+
+        <div class="product-footer">
+
+          <span class="product-price">
+            $15
+            <small>MXN</small>
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(this)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- MENSAJE CARRITO -->
+
+  <div
+    id="toast"
+    style="
+      display:none;
+      position:fixed;
+      bottom:2rem;
+      right:2rem;
+      background:var(--verde-oscuro);
+      color:var(--crema);
+      padding:1rem 1.5rem;
+      border-radius:4px;
+      font-size:0.82rem;
+      z-index:1000;
+      box-shadow:
+      0 8px 30px rgba(0,0,0,0.15);
+      animation:fadeUp 0.4s ease;
+    "
+  >
+    ✓ Producto agregado al carrito
+  </div>
+
+</section>
+
+
+<!-- CARRITO DE COMPRAS -->
+<section id="carrito" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Tu selección</p>
+    <h2 class="section-title">Carrito de <em>compras</em></h2>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-summary">
+    <p>Subtotal: <strong id="cart-subtotal">$0.00 MXN</strong></p>
+    <p>Envío: <strong>Por definir</strong></p>
+    <p class="cart-total">Total de productos:
+      <strong id="cart-total">$0.00 MXN</strong>
+    </p>
+
+    <button class="btn-primary" onclick="goToCheckout()">
+      Continuar con la compra
+    </button>
+    <button class="btn-ghost" onclick="closeCart()">
+      Seguir comprando
+    </button>
+  </div>
+</section>
+
+<!-- CHECKOUT -->
+<section id="checkout" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Último paso</p>
+    <h2 class="section-title">Datos de <em>entrega</em></h2>
+  </div>
+
+  <form id="checkout-form">
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" name="nombre" required autocomplete="name">
+
+    <label for="telefono">Teléfono</label>
+    <input id="telefono" name="telefono" type="tel"
+      required autocomplete="tel">
+
+    <label for="correo">Correo electrónico</label>
+    <input id="correo" name="correo" type="email"
+      required autocomplete="email">
+
+    <label for="direccion">Calle y número</label>
+    <input id="direccion" name="direccion" required
+      autocomplete="street-address">
+
+    <label for="colonia">Colonia</label>
+    <input id="colonia" name="colonia" required>
+
+    <label for="ciudad">Ciudad y estado</label>
+    <input id="ciudad" name="ciudad" required
+      autocomplete="address-level2">
+
+    <label for="cp">Código postal</label>
+    <input id="cp" name="cp" inputmode="numeric"
+      autocomplete="postal-code" required pattern="[0-9]{5}"
+      maxlength="5">
+
+    <label for="pago">Método de pago</label>
+    <select id="pago" name="pago" required>
+      <option value="">Selecciona una opción</option>
+      <option value="pendiente">Por definir</option>
+    </select>
+
+    <p id="checkout-total"></p>
+    <p class="cart-notice">
+      Por ahora el método de pago y el costo de envío están pendientes de definir.
+      Este formulario registra el pedido únicamente en este navegador; no procesa pagos
+      ni envía automáticamente la orden al negocio.
+    </p>
+
+    <button class="btn-primary" type="submit">
+      Confirmar pedido
+    </button>
+    <button class="btn-ghost" type="button"
+      onclick="backToCart()">
+      Volver al carrito
+    </button>
+  </form>
+</section>
+
+<!-- CONFIRMACIÓN -->
+<section id="order-confirmation" class="cart-section" hidden>
+  <div class="section-header">
+    <p class="section-eyebrow">Pedido registrado</p>
+    <h2 class="section-title">¡Gracias por elegir <em>Jabón SAP!</em></h2>
+  </div>
+  <div id="confirmation-details"></div>
+  <button class="btn-primary" onclick="returnToProducts()">
+    Volver a los productos
+  </button>
+</section>
+
+
+<!-- ======================================================
+     INGREDIENTES
+     ====================================================== -->
+
+<section
+  class="ingredients-section"
+  id="ingredientes"
+>
+
+
+  <div class="ingredients-grid">
+
+
+    <div class="ingredients-text reveal">
+
+      <p class="section-eyebrow">
+        Pureza garantizada
+      </p>
+
+      <h2 class="section-title">
+
+        Un solo ingrediente,
+        <em>infinitos beneficios</em>
+
+      </h2>
+
+
+      <p class="section-body">
+
+        La Saponaria (Sapindus saponaria)
+        es una planta cuyas semillas y frutos
+        contienen saponinas, surfactantes 100%
+        vegetales que limpian igual o mejor que
+        los detergentes sintéticos, sin dañar
+        la piel ni el ecosistema.
+
+      </p>
+
+
+      <div class="ingredients-list">
+
+
+        <div class="ingredient-row">
+
+          <span class="ingredient-num">
+            01
+          </span>
+
+          <span class="ingredient-name">
+            Saponinas naturales
+          </span>
+
+          <span class="ingredient-benefit">
+            Limpieza profunda sin irritar
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-row">
+
+          <span class="ingredient-num">
+            02
+          </span>
+
+          <span class="ingredient-name">
+            Acción antifúngica
+          </span>
+
+          <span class="ingredient-benefit">
+            Protege la piel naturalmente
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-row">
+
+          <span class="ingredient-num">
+            03
+          </span>
+
+          <span class="ingredient-name">
+            pH neutro
+          </span>
+
+          <span class="ingredient-benefit">
+            Compatible con todo tipo de piel
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-row">
+
+          <span class="ingredient-num">
+            04
+          </span>
+
+          <span class="ingredient-name">
+            100% biodegradable
+          </span>
+
+          <span class="ingredient-benefit">
+            No contamina ríos ni suelos
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-row">
+
+          <span class="ingredient-num">
+            05
+          </span>
+
+          <span class="ingredient-name">
+            Sin aditivos químicos
+          </span>
+
+          <span class="ingredient-benefit">
+            Puro como la naturaleza lo creó
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="ingredients-visual reveal">
+
+
+      <div class="ing-card">
+
+        <img
+          src="jaboncillo.jpg"
+          alt="Frutos de Sapindus saponaria"
+          style="
+            width:100%;
+            height:180px;
+            object-fit:cover;
+            border-radius:6px;
+            margin-bottom:0.8rem;
+          "
+        >
+
+        <div class="ing-card-name">
+          Sapindus saponaria
+        </div>
+
+        <div class="ing-card-desc">
+
+          El árbol del jabón —
+          sus frutos son el corazón
+          de cada presentación SAP
+
+        </div>
+
+      </div>
+
+
+      <div class="ing-card">
+
+        <span class="ing-emoji">
+          🧴
+        </span>
+
+        <div class="ing-card-name">
+          Formato Líquido
+        </div>
+
+        <div class="ing-card-desc">
+          Listo para usar, espumoso y suave
+        </div>
+
+      </div>
+
+
+      <div class="ing-card">
+
+        <span class="ing-emoji">
+          🫙
+        </span>
+
+        <div class="ing-card-name">
+          Formato Polvo
+        </div>
+
+        <div class="ing-card-desc">
+          Concentrado, rinde más, menos residuo
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     TESTIMONIOS
+     ====================================================== -->
+
+<section class="testimonials">
+
+
+  <div class="section-header reveal">
+
+    <p class="section-eyebrow">
+      Lo que dicen nuestros clientes
+    </p>
+
+    <h2 class="section-title">
+
+      Resultados que
+      <em>hablan por sí solos</em>
+
+    </h2>
+
+  </div>
+
+
+  <div class="testimonials-grid">
+
+
+    <div class="testimonial-card reveal">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p class="testimonial-text">
+
+        El jabón lava demasiado y ademas
+        de eso dejo mi piel más suave.
+        Lo recomiendo a todos mis conocidos.
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          MG
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            María G.
+          </div>
+
+          <div class="author-loc">
+            Ciudad de Cardenas
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="testimonial-card reveal">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p class="testimonial-text">
+
+        Tengo piel muy sensible y siempre
+        tuve problemas con los jabones
+        convencionales. Jabón SAP es lo
+        mejor que he probado, sin irritaciones.
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          LR
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            Laura R.
+          </div>
+
+          <div class="author-loc">
+            Agua Dulce
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="testimonial-card reveal">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p class="testimonial-text">
+
+        Me sorprendio el hecho de que pudiera
+        quitar manchas muy dificiles de manera
+        segura, ademas genero mucha espuma,
+        10/10, lo volveria a comprar
+
+      </p>
+
+      <div class="testimonial-author">
+
+        <div class="author-avatar">
+          CA
+        </div>
+
+        <div>
+
+          <div class="author-name">
+            Carlos A.
+          </div>
+
+          <div class="author-loc">
+            Huimanguillo
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     CTA
+     ====================================================== -->
+
+<section class="cta-section">
+
+
+  <div class="cta-content reveal">
+
+    <p class="section-eyebrow">
+      Empieza hoy
+    </p>
+
+    <h2 class="cta-title">
+
+      Dale a tu piel el<br>
+      cuidado que merece
+
+    </h2>
+
+    <p class="cta-desc">
+
+      Envío a todo México.
+      Compra 3 jabones y obtén un
+      15% de descuento en tu pedido.
+
+    </p>
+
+
+    <div class="cta-buttons">
+
+      <a
+        href="#productos"
+        class="btn-primary"
+      >
+        Comprar ahora
+      </a>
+
+      <a
+        href="#nosotros"
+        class="btn-ghost"
+      >
+        Conocer más
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- CIENCIA Y REFERENCIAS -->
+<section class="sap-science" id="ciencia-saponaria">
+  <div class="sap-science-head">
+    <p class="section-eyebrow">Información y fuentes</p>
+    <h2 class="section-title">La ciencia detrás de la <em>saponaria</em></h2>
+    <p>Las saponinas son compuestos que pueden actuar como tensioactivos. Aquí compartimos investigaciones sobre la especie y sus formulaciones, distinguiendo los resultados publicados de las características que aún deben comprobarse en cada producto comercial.</p>
+  </div>
+  <div class="sap-science-grid">
+    <article class="sap-science-card">
+      <span class="sap-number">ESTUDIO · 2026</span>
+      <h3>Extracto de Sapindus saponaria en jabón líquido</h3>
+      <p>Paiva y colaboradores evaluaron espuma, tensión superficial y detergencia en una formulación con extracto. El estudio reportó resultados funcionales comparables al sistema de referencia probado, con límites específicos en la emulsificación de aceites vegetales.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42417761/" target="_blank" rel="noopener noreferrer">Leer artículo en PubMed ↗</a>
+    </article>
+    <article class="sap-science-card">
+      <span class="sap-number">ESTUDIO · 2023</span>
+      <h3>Formulaciones con extracto natural</h3>
+      <p>Cavaletti y colaboradores estudiaron formulaciones de jabón íntimo con extracto de <em>Sapindus saponaria</em>, analizando estabilidad y propiedades tensioactivas. Los resultados corresponden a las fórmulas estudiadas, no a todos los productos con saponaria.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/37970909/" target="_blank" rel="noopener noreferrer">Leer artículo en PubMed ↗</a>
+    </article>
+    <article class="sap-science-card">
+      <span class="sap-number">REVISIÓN CIENTÍFICA</span>
+      <h3>Propiedades tensioactivas de las saponinas vegetales</h3>
+      <p>Una revisión científica describe la actividad superficial y la capacidad espumante de saponinas de distintas plantas, y señala que el desempeño varía según la especie, el extracto y la formulación.</p>
+      <a href="https://www.mdpi.com/2413-4155/3/4/44" target="_blank" rel="noopener noreferrer">Consultar revisión ↗</a>
+    </article>
+  </div>
+  <p class="sap-science-note">Nota: las referencias citadas estudian extractos o formulaciones experimentales concretas. No demuestran por sí solas que Jabón SAP sea hipoalergénico, antibacteriano, inocuo para todo tipo de piel o biodegradable. Esas afirmaciones requieren evidencia y pruebas específicas del producto final.</p>
+</section>
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer>
+
+
+  <div class="footer-grid">
+
+
+    <div class="footer-brand">
+
+      <div class="brand-name">
+        Jabón SAP
+      </div>
+
+      <p>
+
+        Jabones orgánicos elaborados
+        artesanalmente para el cuidado
+        natural de tu piel.
+        Sin químicos, con amor.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Productos
+      </h4>
+
+      <ul>
+
+        <li>
+          <a href="#productos">
+            Jabón en barra
+          </a>
+        </li>
+
+        <li>
+          <a href="#productos">
+            Jabón liquído
+          </a>
+        </li>
+
+        <li>
+          <a href="#productos">
+            Jabón en polvo
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Empresa
+      </h4>
+
+      <ul>
+
+        <li>
+          <a href="#nosotros">
+            Nosotros
+          </a>
+        </li>
+
+        <li>
+          <a href="#ingredientes">
+            Ingredientes
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            Sustentabilidad
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            Contacto
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="footer-col">
+
+      <h4>
+        Newsletter
+      </h4>
+
+      <p
+        style="
+          font-size:0.78rem;
+          color:rgba(245,240,232,0.55);
+          margin-bottom:0.8rem;
+          font-weight:300;
+        "
+      >
+
+        Recibe consejos de cuidado natural
+        y ofertas exclusivas.
+
+      </p>
+
+
+      <div class="newsletter-input">
+
+        <input
+          type="email"
+          placeholder="tu@correo.com"
+        >
+
+        <button>
+          Suscribir
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="footer-bottom">
+
+    <p>
+      © 2025 Jabón SAP.
+      Todos los derechos reservados.
+    </p>
+
+
+    <div class="social-links">
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        ig
+      </a>
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        fb
+      </a>
+
+      <a
+        class="social-link"
+        href="#"
+      >
+        tt
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ======================================================
+     JAVASCRIPT
+     ====================================================== -->
+
+<script>
+
+
+/* ======================================================
+   SCROLL REVEAL
+   ====================================================== */
+
+const observer =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach(
+        entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target
+              .classList
+              .add('visible');
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(
+    el => observer.observe(el)
+  );
+
+
+
+/* ======================================================
+   CARRITO Y PROCESO DE COMPRA
+   ====================================================== */
+
+const CART_STORAGE_KEY = 'jabonSapCartV1';
+const ORDERS_STORAGE_KEY = 'jabonSapOrdersV1';
+let cart = loadCart();
+
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+    return Array.isArray(saved) ? saved : [];
+  } catch (error) { return []; }
+}
+
+function saveCart() {
+  try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); }
+  catch (error) { console.warn('No se pudo guardar el carrito en este navegador.'); }
+  updateCartCount();
+}
+
+function money(amount) {
+  return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(amount);
+}
+
+function getProductFromButton(btn) {
+  const card = btn.closest('.product-card');
+  if (!card) return null;
+  const name = card.querySelector('.product-name')?.textContent.trim();
+  const priceText = card.querySelector('.product-price')?.textContent || '';
+  const price = Number(priceText.replace(/[^0-9.]/g, ''));
+  if (!name || !Number.isFinite(price)) return null;
+  return { name, price };
+}
+
+function addToCart(btn) {
+  const product = getProductFromButton(btn);
+  if (!product) { alert('No se pudo identificar este producto. Intenta de nuevo.'); return; }
+  const existing = cart.find(item => item.name === product.name);
+  if (existing) existing.quantity += 1;
+  else cart.push({ ...product, quantity: 1 });
+  saveCart();
+  renderCart();
+
+  const toast = document.getElementById('toast');
+  if (toast) {
+    toast.textContent = '✓ ' + product.name + ' se agregó al carrito';
+    toast.style.display = 'block';
+    window.clearTimeout(window.jabonSapToastTimer);
+    window.jabonSapToastTimer = window.setTimeout(() => { toast.style.display = 'none'; }, 2500);
+  }
+  btn.textContent = '✓';
+  btn.style.background = '#8fa455';
+  window.setTimeout(() => { btn.textContent = '+'; btn.style.background = ''; }, 900);
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const badge = document.getElementById('cart-count');
+  if (badge) badge.textContent = String(count);
+}
+
+function cartSubtotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  if (!container) return;
+  container.innerHTML = '';
+
+  cart.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = 'cart-row';
+    const info = document.createElement('div');
+    info.className = 'cart-item-info';
+    const heading = document.createElement('h3');
+    heading.textContent = item.name;
+    const detail = document.createElement('p');
+    detail.textContent = `${money(item.price)} por pieza`;
+    const lineTotal = document.createElement('p');
+    lineTotal.textContent = `Importe: ${money(item.price * item.quantity)}`;
+    info.append(heading, detail, lineTotal);
+
+    const controls = document.createElement('div');
+    controls.className = 'cart-item-controls';
+    const minus = document.createElement('button');
+    minus.type = 'button'; minus.textContent = '−';
+    minus.setAttribute('aria-label', `Quitar una unidad de ${item.name}`);
+    minus.onclick = () => changeQuantity(index, -1);
+    const quantity = document.createElement('span');
+    quantity.textContent = ` ${item.quantity} `;
+    const plus = document.createElement('button');
+    plus.type = 'button'; plus.textContent = '+';
+    plus.setAttribute('aria-label', `Agregar una unidad de ${item.name}`);
+    plus.onclick = () => changeQuantity(index, 1);
+    const remove = document.createElement('button');
+    remove.type = 'button'; remove.textContent = 'Eliminar';
+    remove.onclick = () => removeFromCart(index);
+    controls.append(minus, quantity, plus, remove);
+    row.append(info, controls);
+    container.appendChild(row);
+  });
+
+  const subtotal = money(cartSubtotal());
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const totalEl = document.getElementById('cart-total');
+  const checkoutTotal = document.getElementById('checkout-total');
+  if (subtotalEl) subtotalEl.textContent = subtotal;
+  if (totalEl) totalEl.textContent = subtotal;
+  if (checkoutTotal) checkoutTotal.textContent = `Total de productos: ${subtotal} (envío por definir)`;
+  const checkoutButton = document.querySelector('#carrito .cart-summary .btn-primary');
+  if (checkoutButton) checkoutButton.disabled = cart.length === 0;
+  updateCartCount();
+}
+
+function changeQuantity(index, delta) {
+  if (!cart[index]) return;
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) cart.splice(index, 1);
+  saveCart(); renderCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart(); renderCart();
+}
+
+function showOnlySection(sectionId) {
+  ['carrito', 'checkout', 'order-confirmation'].forEach(id => {
+    const section = document.getElementById(id);
+    if (section) section.hidden = id !== sectionId;
+  });
+  const target = document.getElementById(sectionId);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openCart() {
+  renderCart();
+  showOnlySection('carrito');
+}
+
+function closeCart() {
+  ['carrito', 'checkout', 'order-confirmation'].forEach(id => {
+    document.getElementById(id).hidden = true;
+  });
+  document.getElementById('productos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goToCheckout() {
+  if (cart.length === 0) { alert('Agrega al menos un producto antes de continuar.'); return; }
+  renderCart(); showOnlySection('checkout');
+}
+
+function backToCart() {
+  renderCart(); showOnlySection('carrito');
+}
+
+function returnToProducts() {
+  ['order-confirmation', 'checkout', 'carrito'].forEach(id => {
+    document.getElementById(id).hidden = true;
+  });
+  document.getElementById('productos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.getElementById('checkout-form')?.addEventListener('submit', function(event) {
+  event.preventDefault();
+  if (cart.length === 0) { alert('Tu carrito está vacío.'); openCart(); return; }
+  if (!this.reportValidity()) return;
+
+  const formData = new FormData(this);
+  const orderNumber = 'SAP-' + Date.now().toString().slice(-8);
+  const order = {
+    orderNumber,
+    date: new Date().toLocaleString('es-MX'),
+    customer: {
+      nombre: formData.get('nombre'), telefono: formData.get('telefono'),
+      correo: formData.get('correo'), direccion: formData.get('direccion'),
+      colonia: formData.get('colonia'), ciudad: formData.get('ciudad'),
+      cp: formData.get('cp'), pago: formData.get('pago')
+    },
+    items: cart.map(item => ({ ...item })),
+    subtotal: cartSubtotal(),
+    status: 'Pendiente de confirmación'
+  };
+
+  try {
+    const orders = JSON.parse(localStorage.getItem(ORDERS_STORAGE_KEY) || '[]');
+    orders.push(order);
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+  } catch (error) { console.warn('No se pudo guardar el pedido en este navegador.'); }
+
+  const details = document.getElementById('confirmation-details');
+  details.innerHTML = '';
+  const title = document.createElement('h3');
+  title.textContent = `Número de pedido: ${orderNumber}`;
+  details.appendChild(title);
+  const status = document.createElement('p');
+  status.textContent = 'Estado: pendiente de confirmación';
+  details.appendChild(status);
+  const customer = document.createElement('p');
+  customer.textContent = `Cliente: ${order.customer.nombre}`;
+  details.appendChild(customer);
+  const address = document.createElement('p');
+  address.textContent = `Entrega: ${order.customer.direccion}, ${order.customer.colonia}, ${order.customer.ciudad}, C.P. ${order.customer.cp}`;
+  details.appendChild(address);
+  const productsTitle = document.createElement('h3');
+  productsTitle.textContent = 'Resumen del pedido';
+  details.appendChild(productsTitle);
+  order.items.forEach(item => {
+    const line = document.createElement('p');
+    line.textContent = `${item.quantity} × ${item.name} — ${money(item.price * item.quantity)}`;
+    details.appendChild(line);
+  });
+  const total = document.createElement('p');
+  const strong = document.createElement('strong');
+  strong.textContent = `Total de productos: ${money(order.subtotal)}`;
+  total.appendChild(strong); details.appendChild(total);
+  const notice = document.createElement('p');
+  notice.textContent = 'Este pedido se guardó en este navegador para fines de demostración. Jabón SAP todavía debe confirmar la compra, el método de pago y el costo de envío.';
+  details.appendChild(notice);
+
+  cart = [];
+  saveCart();
+  this.reset();
+  showOnlySection('order-confirmation');
+});
+
+renderCart();
+updateCartCount();
+
+
+/* ======================================================
+   HIGHLIGHT DE NAVEGACIÓN
+   ====================================================== */
+
+const sections =
+  document.querySelectorAll(
+    'section[id]'
+  );
+
+
+window.addEventListener(
+  'scroll',
+  () => {
+
+    const scrollY =
+      window.scrollY;
+
+
+    sections.forEach(
+      section => {
+
+        const offset =
+          section.offsetTop - 100;
+
+        const height =
+          section.offsetHeight;
+
+
+        if (
+          scrollY >= offset &&
+          scrollY < offset + height
+        ) {
+
+          document
+            .querySelectorAll(
+              '.nav-links a'
+            )
+            .forEach(
+              a => {
+
+                a.style.color = '';
+
+
+                if (
+                  a.getAttribute('href') ===
+                  '#' + section.id
+                ) {
+
+                  a.style.color =
+                    'var(--verde-oscuro)';
+
+                }
+
+              }
+            );
+
+        }
+
+      }
+    );
+
+  }
+);
+
+
+
+
+/* ======================================================
+   CARRUSEL AUTOMÁTICO DE BANNERS
+   ====================================================== */
+(function initSapCarousel() {
+  const carousel = document.getElementById('sap-carousel');
+  if (!carousel) return;
+  const slides = Array.from(carousel.querySelectorAll('.sap-slide'));
+  const dots = document.getElementById('sap-dots');
+  const prev = document.getElementById('sap-prev');
+  const next = document.getElementById('sap-next');
+  let active = 0;
+  let timer = null;
+
+  function showSlide(index) {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const selected = i === active;
+      slide.classList.toggle('is-active', selected);
+      slide.setAttribute('aria-hidden', String(!selected));
+    });
+    if (dots) Array.from(dots.children).forEach((dot, i) => dot.setAttribute('aria-current', String(i === active)));
+  }
+  function restart() {
+    if (timer) window.clearInterval(timer);
+    timer = window.setInterval(() => showSlide(active + 1), 6500);
+  }
+  if (dots) {
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Mostrar banner ${i + 1}`);
+      dot.addEventListener('click', () => { showSlide(i); restart(); });
+      dots.appendChild(dot);
+    });
+  }
+  prev?.addEventListener('click', () => { showSlide(active - 1); restart(); });
+  next?.addEventListener('click', () => { showSlide(active + 1); restart(); });
+  carousel.addEventListener('mouseenter', () => { if (timer) window.clearInterval(timer); });
+  carousel.addEventListener('mouseleave', restart);
+  showSlide(0);
+  restart();
+})();
+
+/* BUSCADOR DE PRODUCTOS */
+(function initSapSearch() {
+  const input = document.getElementById('sap-product-search');
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLocaleLowerCase('es-MX');
+    document.querySelectorAll('#productos .product-card').forEach(card => {
+      const content = card.textContent.toLocaleLowerCase('es-MX');
+      card.classList.toggle('sap-no-match', query !== '' && !content.includes(query));
+    });
+  });
+})();
+
+</script>
+
+</body>
+</html>
